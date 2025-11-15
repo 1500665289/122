@@ -1,0 +1,1154 @@
+<Stories><List>	
+	<Story Name="Secrets_shiqi_1">
+		<DisplayName>绝色佳人</DisplayName>
+		<Desc>闻风而来的[NAME]来到[PLACE]，果然得见一绝色女子。</Desc>
+		<Selections>
+			<li>
+				<Display>追求这位女子</Display>  <!--男性以及魅力判定，成功增长修为，失败无危险-->
+				<Tip>男性魅力8</Tip>
+				<OKResult><![CDATA[
+				if me:GetSex() == 1 and me:GetCharisma() > 7 then
+					if me:GetGongName() == "Gong_1701_Tu" then
+						me:AddMsg(XT("[NAME]仅仅只靠俊俏的脸庞便俘获了对方芳心，一番调教之后，该女子成为了[NAME]的专属炉鼎以供采补，[NAME]修为大涨。"));me:AddModifier("Luding4");me:AddPracticeResource("Stage",me:GetGLevel() * 500);me:AddModifier("Story_Caibuzhidao1");me:AddMemery("在历练途中睡了一个绝色女子！");
+					else
+						me:AddMsg(XT("[NAME]仅仅只靠俊俏的脸庞便俘获了对方芳心，由于并未习得采补之法，故只是和该女子结了一段露水姻缘后便离开了。"));
+					end
+				else
+					me:AddMsg(XT("[NAME]欲追明火执仗的追求这位女子，而只得到了一个“滚”字。"));
+				end
+				]]></OKResult>
+			</li>	
+			
+			<li>
+				<Display>掳走这个女子</Display>  <!--金丹判定，成功增长修为增加门派恶名，失败增加恶名-->
+				<Tip>金丹期</Tip>
+				<OKResult><![CDATA[
+				if me:GetGLevel() > 6 then
+					if me:GetGongName() == "Gong_1701_Tu" then
+						me:AddMsg(XT("[NAME]二话不说，打退了女子身边的随从，便将女子掳回门派，一番调教之后，该女子成为了[NAME]的专属炉鼎以供采补，[NAME]修为大涨。"));me:AddModifier("Luding4");me:AddPracticeResource("Stage",me:GetGLevel() * 500);me:AddSchoolScore(3,100);me:AddModifier("Story_Caibuzhidao1");me:AddMemery("在历练途中强奸了一个绝色女子！");
+					else
+						me:AddMsg(XT("[NAME]二话不说，打退了女子身边的随从，将女子一番调教后干了个爽，由于并未习得采补之法，故满足肉欲后[NAME]便离开了。"));
+					end
+				else
+					me:AddMsg(XT("[NAME]被女子的舔狗们一顿暴打，看准一个机会勉强趁机溜走。"));me:AddSchoolScore(1,-100);
+				end
+				]]></OKResult>
+			</li>
+			
+			<li>
+				<Display>溜了溜了</Display>  
+				<OKResult><![CDATA[
+				me:AddMsg(XT("[NAME]觉得，这么好的女孩子，自己是配不上的，于是就离开了。"));
+				]]></OKResult>
+			</li>
+		</Selections>
+	</Story>
+	
+	<Story Name="Secrets_shiqi_2">
+		<DisplayName>合欢门徒</DisplayName>
+		<Desc>[NAME]来到[PLACE]，发现此处并非如同传闻中那样被合欢女修所占据，而仅仅只是一些叛出合欢宗的男性炉鼎，他们平日之间被合欢女性轮番采补导致心理已经不太正常了，叛逃出宗门后来到凡间奸淫掳掠无恶不作。\n[NAME]决定？</Desc>
+		<Selections>
+			<li>
+				<Display>色诱</Display>  
+				<Tip>性别判定</Tip>
+				<OKResult><![CDATA[
+				if me:GetSex() > 1 then
+					if me:GetGongName() == "Gong_1701_Tu" then
+						me:AddMsg(XT("身为女修的[NAME]，扮作凡女故意被合欢叛徒掳走，合欢叛徒们于[NAME]身上驰骋之时，只见[NAME]气随意转转瞬间将对方精元吸尽，余者只当是此子纵欲过度未做防范，[NAME]以一当百活生生的将所有合欢叛徒睡服。"));me:AddModifier("Pochu");me:AddModifier("Story_Caibuzhidao1");me:AddMemery("在历练途中舍身睡服数十合欢叛徒，并将对方残余不多的精元采补一空！");
+					else
+						me:AddMsg(XT("身为女修的[NAME]，扮作凡女故意被合欢叛徒掳走，合欢叛徒们于[NAME]身上驰骋之时，[NAME]想要运转法诀反夺对方精元，奈何自己并未学习任何采补之法，只能活生生的被这一众合欢叛徒所轮奸。"));me:AddModifier("Pochu");me:AddModifier("Story_Caibuzhidao2");me:AddMemery("于历练途中被一众合欢叛徒轮奸采补！");
+					end
+				else
+					if me.npcObj.PropertyMgr.BodyData:PartIsBroken("Genitals") then
+						me:AddMsg(XT("早已自宫的[NAME]男生女相，扮作凡女故意被合欢叛徒掳走，合欢叛徒欲采补[NAME]之时却发现[NAME]竟是个太监，故将[NAME]打了一顿后扔出了驻地"));
+					else
+						me:AddMsg(XT("[NAME]是个铁铮铮的硬汉子，合欢叛徒也不是智障，此事只得作罢。"));
+					end
+				end
+				]]></OKResult>
+			</li>	
+			
+			<li>
+				<Display>强攻</Display>  <!--金丹判定，成功降低合欢好感，失败被断四肢-->
+				<Tip>金丹期</Tip>
+				<OKResult><![CDATA[
+				if me:GetGLevel() > 6 then
+					me:AddMsg(XT("[NAME]直接杀向合欢弟子据点，国士无双勇不可当，只有少量合欢叛徒趁乱逃走了。"));me:AddSchoolScore(2,100);me:AddSchoolRelation(11,150);
+				else
+					if me:GetSex() > 1 then
+						me:AddMsg(XT("[NAME]道法不精，被合欢弟子所击败，合欢弟子见色起意，将[NAME]削断四肢当成肉枕玩弄了一番后丢弃了，此事于合欢女修们知晓后，觉得本门全特么废物，便对本门的好感降低了。"));me:AddModifier("Pochu");me:AddModifier("Story_Caibuzhidao2");me:AddSchoolRelation(11,-150);me:AddSchoolScore(1,-200);me:AddDamage("Fabao_CutOff","LeftScapula", 1, XT("斩断"));me:AddDamage("Fabao_CutOff","RightScapula", 1, XT("斩断"));me:AddDamage("Fabao_CutOff","LeftThighbone", 1, XT("斩断"));me:AddDamage("Fabao_CutOff","RightThighbone", 1, XT("斩断"));me:AddMemery("在历练途中不慎被合欢叛徒所擒获，后被斩断四肢作为肉枕玩弄！");me:AddTitle(XT("肉枕"),string.format(XT("于%s年历练途中，被人斩断四肢作为肉枕饲养玩弄！"),4));
+					else
+						me:AddMsg(XT("[NAME]道法不精，被合欢弟子所击败后砍成了人棍，此事于合欢女修们知晓后，觉得本门全特么废物，便对本门的好感降低了。"));me:AddSchoolRelation(11,-150);me:AddSchoolScore(1,-200);me:AddDamage("Fabao_CutOff","LeftScapula", 1, XT("斩断"));me:AddDamage("Fabao_CutOff","RightScapula", 1, XT("斩断"));me:AddDamage("Fabao_CutOff","LeftThighbone", 1, XT("斩断"));me:AddDamage("Fabao_CutOff","RightThighbone", 1, XT("斩断"));
+					end
+				end
+				]]></OKResult>
+			</li>
+			
+			<li>
+				<Display>离开</Display>  
+				<OKResult><![CDATA[
+				me:AddMsg(XT("[NAME]决定还是不管这场闲事，转身离开。"));
+				]]></OKResult>
+			</li>
+		</Selections>
+	</Story>
+	
+	<Story Name="Secrets_shiqi_3">
+		<DisplayName>无遮大会</DisplayName>
+		<Desc>[NAME]来到[PLACE]，合欢宗的无遮大会已经开启，大量男修聚集于极乐广场之前等待合欢宗女修们的挑选。\n[NAME]决定？</Desc>
+		<Selections>
+			<li>
+				<Display>安静待选</Display>  
+				<Tip>性别判定</Tip>
+				<OKResult><![CDATA[
+				if me:GetSex() > 1 then
+					me:AddMsg(XT("[NAME]是个女人，合欢宗的女修又不是脑瘫，无遮大会自然与[NAME]毫无关系。"));
+				else
+					if me:GetCharisma() > 7 then
+						me:AddMsg(XT("[NAME]凭借着不俗的外表赢了的一位合欢女修的关注，那位女修向[NAME]走来。"));me:TriggerStory("Secrets_wuzhendahui1");
+					else
+						me:AddMsg(XT("舔狗或许有资格成为炉鼎，但是丑比绝对没有，这次无遮大会没有任何合欢女修看上了[NAME]，毕竟就算是挑采补的炉鼎，也要选那些长得还不错的炉鼎。"));
+					end
+				end
+				]]></OKResult>
+			</li>	
+			
+			<li>
+				<Display>强行上台</Display>  <!--敢点就敢把你头打爆-->
+				<Tip>谁点谁悲剧</Tip>
+				<OKResult><![CDATA[
+					me:AddMsg(XT("[NAME]见到一位让他心动的合欢宗女修，二话不说便想仗着实力冲上前去，只见那名倾城之貌的女修仅仅只是随口撩拨几句，四周的男修便向疯狗一样的向[NAME]攻来。"));me:AddSchoolRelation(11,-150);me:AddSchoolScore(1,-200);me:AddDamage("Fabao_CutOff","AllHead", 1, XT("打爆"));
+				]]></OKResult>
+			</li>
+			
+			<li>
+				<Display>离开</Display>  
+				<OKResult><![CDATA[
+				me:AddMsg(XT("[NAME]觉得这排队给人当炉鼎着实脑残，决定转身离开。"));
+				]]></OKResult>
+			</li>
+		</Selections>
+	</Story>
+	
+	<Story Name="Secrets_wuzhendahui1">
+		<DisplayName>无遮大会</DisplayName>
+		<Desc>合欢女修来到[NAME]面前娇声道“这位郎君生的着实好看，可愿与奴家结为双修道侣，双宿双栖共踏仙道？”。\n[NAME]决定？</Desc>
+		<Selections>
+			<li>
+				<Display>愿意</Display>  
+				<Tip>生殖器判定</Tip>
+				<OKResult><![CDATA[
+				if me.npcObj.PropertyMgr.BodyData:PartIsBroken("Genitals") then
+					me:AddMsg(XT("[NAME]连忙点头称诺，最后便于那女修进入山门，一入合欢山门，那真是若梦似幻，着眼之下便是那一众青衣婢子也堪得上秀色可餐。"));
+					me:AddMsg(XT("在一路欣赏燕瘦环肥的美景之后，[NAME]跟随合欢女修来到了一间宽大的卧室，女修将[NAME]推入房门，便开始上下其手对[NAME]撩拨了起来，直到那纤纤玉手游走到了原本应该矗立着一支擎天白玉柱的方位。"));
+					me:AddMsg(XT("“你这是在找死！”那五条应该缠绕着白玉擎天柱的绕指柔蛇瞬间化催魂夺命的百炼钢刀，直接斩断[NAME]一臂，并将其赶出宗门。"));me:AddSchoolRelation(11,-150);me:AddSchoolScore(1,-200);me:AddDamage("Fabao_CutOff","AllHead", 1, XT("打穿"));
+				else
+					if me:GetPhysique() > 7 then
+						me:AddMsg(XT("[NAME]连忙点头称诺，最后便于那女修进入山门，一入合欢山门，那真是若梦似幻，着眼之下便是那一众青衣婢子也堪得上秀色可餐。"));
+						me:AddMsg(XT("在一路欣赏燕瘦环肥的美景之后，[NAME]跟随合欢女修来到了一间宽大的卧室，女修将[NAME]推入房门，便开始上下其手对[NAME]撩拨了起来，[NAME]胯下的擎天玉柱也支立了起来，适时[NAME]只感胯下玉柱被数条灵蛇所绕，灵蛇上下翻飞所经之地处皆留下蛇腹的清凉与些许蛇身环勒所带来的烧灼感。"));me:TriggerStory("Secrets_wuzhendahui3");
+					else
+						me:AddMsg(XT("[NAME]连忙点头称诺，最后便于那女修进入山门，一入合欢山门，那真是若梦似幻，着眼之下便是那一众青衣婢子也堪得上秀色可餐。"));
+						me:AddMsg(XT("在一路欣赏燕瘦环肥的美景之后，[NAME]跟随合欢女修来到了一间宽大的卧室，女修将[NAME]推入房门，便开始上下其手对[NAME]撩拨了起来，[NAME]胯下的擎天玉柱也支立了起来，适时[NAME]只感胯下玉柱被数条灵蛇所绕，灵蛇上下翻飞所经之地处皆留下蛇腹的清凉与些许蛇身环勒所带来的烧灼感。"));
+						me:AddMsg(XT("女修超绝的手法是[NAME]从未经历过的，一时快意上涌直冲百汇。"));me:TriggerStory("Secrets_wuzhendahui2");
+					end
+				end
+				]]></OKResult>
+			</li>	
+			
+			<li>
+				<Display>拒绝</Display>  
+				<OKResult><![CDATA[
+				me:AddMsg(XT("[NAME]拒绝了女修，转身离开。"));
+				]]></OKResult>
+			</li>
+		</Selections>
+	</Story>
+	
+	<Story Name="Secrets_wuzhendahui2">
+		<DisplayName>无遮大会</DisplayName>
+		<Desc>女修怒叱一声“废物”后，伏下身子张口含住那微微软倒的玉柱，香舌或提或挑，又不时化身泥鳅一般抵着[NAME]的马眼便是一通钻弄，[NAME]的玉柱再次立起，却仅仅只坚持了数个呼吸，便溃不成军一泻千里。</Desc>
+		<Selections>
+			<li>
+				<Display>继续</Display>  
+				<Tip>考虑一下读档吧</Tip>
+				<OKResult><![CDATA[
+				me:AddMsg(XT("数轮快意过后，[NAME]的玉柱早已应该喷吐不出任何精元了，然而[NAME]惊恐的发现，随着一轮又一轮的快意，自己的玉柱依旧随着快意在向外倾泻着体液，直到一次较大的喷泄后，女修的嘴角渗出了些许猩红，[NAME]才知道自己或许应该命不久矣。"));
+				me:AddMsg(XT("被采补一空后的[NAME]，面无血色形同枯槁，与一些同样被采废的炉鼎一起被赶出了合欢宗"));me:AddDamage("Mu_Failure","Heart", 1, XT("心脉精血皆被合欢宗女修采补一空干涸"));me:AddDamage("Mu_Failure","TheWholeBody", 1, XT("全身精血皆被合欢宗女修采补一空干涸"));
+				]]></OKResult>
+			</li>	
+		</Selections>
+	</Story>
+	
+	<Story Name="Secrets_wuzhendahui3">
+		<DisplayName>无遮大会</DisplayName>
+		<Desc>正所谓他强任他强清风拂山冈，他横由他横明月照大江，任凭合欢女修千般挑弄，[NAME]就是闭锁精关巍然不动，合欢女修见只靠手口无法使得[NAME]的小兄弟俯首称臣，只得褪尽罗衫。</Desc>
+		<Selections>
+			<li>
+				<Display>继续</Display>  
+				<Tip>合欢臣服</Tip>
+				<OKResult><![CDATA[
+				me:AddMsg(XT("见眼前女修褪下衣衫，[NAME]高笑一声便欺身上前，将女修按倒在榻机之上。直接提枪跨马冲杀入那桃源大阵，[NAME]胯下巨兽凶蛮的直冲幽径深处直捣黄龙，而后便是毫无所谓技术的一顿猪突猛进，可谓是枪枪见底。"));
+				me:AddMsg(XT("出生于合欢宗的女修，虽也算的上身经百战，但如此强悍的攻势还是第一次遇上，对方那竿长枪真能算说是枪枪到肉，每次插入都仿佛一根烧红的铁棍由下而上贯入子宫，而那毫不留情抽出则仿佛要将自己整个灵魂都从身体里抽出。"));me:TriggerStory("Secrets_wuzhendahui4");
+				]]></OKResult>
+			</li>	
+		</Selections>
+	</Story>
+	
+	<Story Name="Secrets_wuzhendahui4">
+		<DisplayName>无遮大会</DisplayName>
+		<Desc>月上柳梢头，人，对人，嗯那个人，人已经被[NAME]胯下的凶兽所完全征服，这自称银灵儿的合欢女修跪倒在机塌之前，用这口中三寸软香清洁着[NAME]的下身。</Desc>
+		<Selections>
+			<li>
+				<Display>继续</Display>  
+				<Tip>合欢臣服</Tip>
+				<OKResult><![CDATA[
+				me:AddMsg(XT("“银灵儿，你这舔的老子又有感觉了！”言毕，[NAME]便又提起胯下这温香软玉往塌上一按，对着那看似好像完全未经人事的谷道便是奋力一刺。"));
+				me:AddMsg(XT("只听身下人儿惨呼一声，[NAME]那又管的许多，这未经开发的谷道便如同拥有无数守护者一般，对侵入自己地盘[NAME]胯下的凶器便是一顿压挤，企图将这入侵者赶出自己的领地，而这一份压迫力对于[NAME]来说更是无比欢畅的激励，直到再次抽插了近千下，[NAME]终于阳关大开，一身精元注入银灵儿的谷道后，就这么沉沉的睡去。"));me:TriggerStory("Secrets_wuzhendahui5");
+				]]></OKResult>
+			</li>	
+		</Selections>
+	</Story>
+	
+	<Story Name="Secrets_wuzhendahui5">
+		<DisplayName>无遮大会</DisplayName>
+		<Desc>次日，待到[NAME]醒来，发现自己已经身处于另一间厢房，起身发现身侧留书一封，那是昨日于自己欢好的女修所留，[NAME]万万没有想到昨天在自己胯下承欢宛若母狗的女修，竟是合欢宗太上长老银灵仙子，如此神仙般的人物自然不可能真和[NAME]结为道侣，但对方还是在桌上留下了两个匣子，这怕不是当付嫖资把[NAME]嫖了吧？</Desc>
+		<Selections>
+			<li>
+				<Display>打开左边匣子</Display>  
+				<Tip>秘籍</Tip>
+				<OKResult><![CDATA[
+				me:AddMsg(XT("[NAME]伸手翻开了左边的匣子，一本秘籍出现在匣子底部，[NAME]取出了这本秘籍，打算去开另一个匣子时，发现怎么都打不开另外一个匣子，[NAME]带着秘籍离开了合欢岛。"));
+				me:LearnEsotericCustomize(XT("六欲密典之"), me:GetGElementKind(), 0, true, world:RandomFloat(1,1.5), 1, 1, XT("巨量的"));
+				me:UnLockGong("Gong_1701_Tu");
+				]]></OKResult>
+			</li>	
+			
+			<li>
+				<Display>打开右边匣子</Display>  
+				<Tip>灵液</Tip>
+				<OKResult><![CDATA[
+				me:AddMsg(XT("[NAME]伸手翻开了右边的匣子，发现匣底是一个白玉制成的小碗，碗中陈放着淡金色的药液，药液有着淡淡死鲨鱼的味道，取出玉碗。"));
+				me:TriggerStory("Secrets_wuzhendahui6");
+				]]></OKResult>
+			</li>	
+		</Selections>
+	</Story>
+	
+	<Story Name="Secrets_wuzhendahui6">
+		<DisplayName>无遮大会</DisplayName>
+		<Desc>看着手上散发着淡淡死鲨鱼味的金色液体，[NAME]决定。</Desc>
+		<Selections>
+			<li>
+				<Display>喝掉</Display>  
+				<Tip>合欢臣服</Tip>
+				<OKResult><![CDATA[
+				me:AddMsg(XT("“俗话说的好，良药苦口利于病”[NAME]暗自呢喃道，这液体虽然闻起来不怎么样，但说不定高级灵药就是这气味的呢，言毕[NAME]便将金色的液体吞服入腹。"));
+				me:AddMsg(XT("药液入腹，一股无比庞大的灵气在[NAME]腹中炸裂开来，[NAME]自叹“吾命休矣”，确没想到炸裂开的灵气，一边狂暴的扩充着自身的经脉，一边滋养着因扩张经脉所带来的损伤"));
+				me:AddModifier("Story_Zhenxianlingye1");
+				me:AddTitle(XT("圣泉使"),string.format(XT("第%s年，成功在合欢宗无遮大会喝到女真仙下体的蜜液的男人！"),4));
+				]]></OKResult>
+			</li>	
+			
+			<li>
+				<Display>倒掉</Display>  
+				<Tip>合欢臣服</Tip>
+				<OKResult><![CDATA[
+				me:AddMsg(XT("“这玩意一股死鲨鱼味，怕不是昨天那贱人把……”想想就觉得恶心，[NAME]直接把金色的液体倒掉了"));
+				]]></OKResult>
+			</li>	
+		</Selections>
+	</Story>
+	
+	<Story Name="Secrets_shiqi_4">
+		<DisplayName>据点</DisplayName>
+		<Desc>[NAME]来到了本门位于[PLACE]的据点。</Desc>
+		<Selections>
+			<li>
+				<Display>享受俘虏</Display>
+				<OKResult>
+				GameMain:GetMod("Lua_hudong"):Xiangyong()
+				</OKResult>
+			</li>	
+			
+			<li>
+				<Display>个人资产</Display>
+				<OKResult>
+				GameMain:GetMod("Lua_hudong"):Zichan()
+				</OKResult>
+			</li>
+			
+			<li>
+				<Display>返回</Display>  
+				<OKResult>me:TriggerStory("City_Base");</OKResult>
+			</li>
+		</Selections>
+	</Story>
+	
+	<Story Name="Secrets_xiangyong_1">
+		<DisplayName>据点</DisplayName>
+		<Desc>[NAME]决定？。</Desc>
+		<Selections>
+			<li>
+				<Display>随便选个男俘虏玩玩</Display>
+				<OKResult>
+				me:AddMsg("[NAME]挑选了了一个男性俘虏，张开双腿指着自己下身的蜜穴，对方四肢着地顺从的爬到了[NAME]身前轻吻着[NAME]芳足等待着下一个指示\n[NAME]:“上来！”。\n得到指示的男性俘虏便在[NAME]身上奋力耕耘了起来。\n事毕，[NAME]带着满穴精元心满意足的离开了。");
+				me:AddModifier("Pochu");
+				me:AddPracticeResource("Stage",me:GetGLevel() * 250);
+				</OKResult>
+			</li>	
+			
+			<li>
+				<Display>采补</Display>
+				<OKResult>
+				GameMain:GetMod("Lua_hudong"):JDcaibu()
+				</OKResult>
+			</li>
+			
+			<li>
+				<Display>返回</Display>  
+				<OKResult>
+				me:TriggerStory("Secrets_shiqi_4");
+				</OKResult>
+			</li>
+		</Selections>
+	</Story>
+	
+	<Story Name="Secrets_xiangyong_2">
+		<DisplayName>据点</DisplayName>
+		<Desc>[NAME]决定？。</Desc>
+		<Selections>
+			<li>
+				<Display>随便选个女俘虏玩玩</Display>
+				<OKResult>
+				me:AddMsg("细细的娇喘声如水溪流过，声音柔合而又娇媚，让人想入非非，[NAME]轻揉着年幼女奴娇嫩的乳房，山峰顶端的蓓蕾呈粉红色挺立着，蓓蕾随着[NAME]猛烈的抽插动作颤抖，身下的人儿婉转娇啼，如初春的燕子：“快点......... 快！.......... 再快点！......... 啊~！公子你好....... 好厉害”……\n事毕，[NAME]将阳精灌入了对方娇嫩的下体后，心满意足的睡去了。");
+				</OKResult>
+			</li>	
+			
+			<li>
+				<Display>采补</Display>
+				<OKResult>
+				GameMain:GetMod("Lua_hudong"):JDcaibu()
+				</OKResult>
+			</li>
+			
+			<li>
+				<Display>返回</Display>  
+				<OKResult>
+				me:TriggerStory("Secrets_shiqi_4");
+				</OKResult>
+			</li>
+		</Selections>
+	</Story>
+	
+	<Story Name="Secrets_JDcaibu1">
+		<DisplayName>据点</DisplayName>
+		<Desc>[NAME]想要采补谁？。</Desc>
+		<Selections>
+			<li>
+				<Display>普通男俘虏</Display>
+				<OKResult>
+				me:AddModifier("Luding");
+				local Fulu = me:GetModifierStack("Luding");
+				local buff = me.npcObj.PropertyMgr:FindModifier("Luding");
+				me:AddModifier("Story_Caibuzhidao1");
+				local buff2 = me.npcObj.PropertyMgr:FindModifier("Story_Caibuzhidao1");
+				local Panding = me:RandomInt(1,5);
+				if Fulu >= 11 and Panding == 4 then
+				me:AddMsg("[NAME]决定在据点来一次个人的采补盛宴，她从俘虏中挑出了十名普通男性，与他们逐一欢好，将他们浑身精元采补一空。\n事毕，诸男均化为干尸被遗弃在据点中的苗圃一角，用于肥田，见到时候已经不早，[NAME]御剑向山门归去。。");
+				me:AddModifier("Pochu");
+				buff:UpdateStack(-Panding);
+				buff2:UpdateStack(9);
+				else
+					if Fulu >= 4 and Panding == 3 then
+					me:AddMsg("[NAME]从俘虏中挑出了三名普通男性，与他们逐一欢好，将他们浑身精元采补一空。\n事毕，诸男均化为干尸被遗弃在据点中的苗圃一角，用于肥田，见到时候已经不早，[NAME]御剑向山门归去。。");
+					me:AddModifier("Pochu");
+					buff:UpdateStack(-Panding);
+					buff2:UpdateStack(2);
+					else
+						if Fulu >= 3 and Panding == 2 then
+						me:AddMsg("[NAME]从俘虏中挑出了两名普通男性，与他们逐一欢好，将他们浑身精元采补一空。\n事毕，诸男均化为干尸被遗弃在据点中的苗圃一角，用于肥田，见到时候已经不早，[NAME]御剑向山门归去。。");
+						me:AddModifier("Pochu");
+						buff:UpdateStack(-Panding);
+						buff2:UpdateStack(1);
+						else
+							if Fulu >= 2 and Panding == 1 then
+							me:AddMsg("[NAME]从俘虏中挑出了一名普通男性，与他们逐一欢好，将他们浑身精元采补一空。\n事毕，此男化为干尸被遗弃在据点中的苗圃一角，用于肥田，见到时候已经不早，[NAME]御剑向山门归去。。");
+							me:AddModifier("Pochu");
+							buff:UpdateStack(-Panding);
+							else
+								if Fulu >= 2 then
+								me:AddMsg("[NAME]从俘虏中挑出了一名普通男性，与他们逐一欢好，将他们浑身精元采补一空。\n事毕，此男化为干尸被遗弃在据点中的苗圃一角，用于肥田，见到时候已经不早，[NAME]御剑向山门归去。。");
+								me:AddModifier("Pochu");
+								buff:UpdateStack(-1);
+								else
+								me:AddMsg("[NAME]没有普通男性俘虏");
+								me:TriggerStory("Secrets_xiangyong_1");
+								buff2:UpdateStack(-1);
+								end
+							end
+						end
+					end
+				end
+				buff:UpdateStack(-1);
+				</OKResult>
+			</li>
+			
+			<li>
+				<Display>英俊的男俘虏</Display>
+				<OKResult>
+				me:AddModifier("Luding3");
+				local Fulu = me:GetModifierStack("Luding3");
+				local buff = me.npcObj.PropertyMgr:FindModifier("Luding3");
+				me:AddModifier("Story_Caibuzhidao1");
+				local buff2 = me.npcObj.PropertyMgr:FindModifier("Story_Caibuzhidao1");
+				local Panding = me:RandomInt(1,5);
+				if Fulu >= 11 and Panding == 4 then
+				me:AddMsg("[NAME]决定在据点来一次个人的采补盛宴，她从俘虏中挑出了十名俊美男性，与他们逐一欢好，将他们浑身精元采补一空。\n事毕，诸男均化为干尸被遗弃在据点中的苗圃一角，用于肥田，见到时候已经不早，[NAME]御剑向山门归去。。");
+				me:AddModifier("Pochu");
+				buff:UpdateStack(-Panding);
+				buff2:UpdateStack(9);
+				else
+					if Fulu >= 4 and Panding == 3 then
+					me:AddMsg("[NAME]从俘虏中挑出了三名俊美男性，与他们逐一欢好，将他们浑身精元采补一空。\n事毕，诸男均化为干尸被遗弃在据点中的苗圃一角，用于肥田，见到时候已经不早，[NAME]御剑向山门归去。。");
+					me:AddModifier("Pochu");
+					buff:UpdateStack(-Panding);
+					buff2:UpdateStack(2);
+					else
+						if Fulu >= 3 and Panding == 2 then
+						me:AddMsg("[NAME]从俘虏中挑出了两名俊美男性，与他们逐一欢好，将他们浑身精元采补一空。\n事毕，诸男均化为干尸被遗弃在据点中的苗圃一角，用于肥田，见到时候已经不早，[NAME]御剑向山门归去。。");
+						me:AddModifier("Pochu");
+						buff:UpdateStack(-Panding);
+						buff2:UpdateStack(1);
+						else
+							if Fulu >= 2 and Panding == 1 then
+							me:AddMsg("[NAME]从俘虏中挑出了一名俊美男性，与他们逐一欢好，将他们浑身精元采补一空。\n事毕，此男化为干尸被遗弃在据点中的苗圃一角，用于肥田，见到时候已经不早，[NAME]御剑向山门归去。。");
+							me:AddModifier("Pochu");
+							buff:UpdateStack(-Panding);
+							else
+								if Fulu >= 2 then
+								me:AddMsg("[NAME]从俘虏中挑出了一名俊美男性，与他们逐一欢好，将他们浑身精元采补一空。\n事毕，此男化为干尸被遗弃在据点中的苗圃一角，用于肥田，见到时候已经不早，[NAME]御剑向山门归去。。");
+								me:AddModifier("Pochu");
+								buff:UpdateStack(-1);
+								else
+								me:AddMsg("[NAME]没有俊美的男性俘虏");
+								me:TriggerStory("Secrets_xiangyong_1");
+								buff2:UpdateStack(-1);
+								end
+							end
+						end
+					end
+				end
+				buff:UpdateStack(-1);
+				</OKResult>
+			</li>
+			
+			<li>
+				<Display>男修士</Display>
+				<OKResult>
+				me:AddModifier("Luding5");
+				local Fulu = me:GetModifierStack("Luding5");
+				local buff = me.npcObj.PropertyMgr:FindModifier("Luding5");
+				me:AddModifier("Story_Caibuzhidao1");
+				local buff2 = me.npcObj.PropertyMgr:FindModifier("Story_Caibuzhidao1");
+				local Panding = me:RandomInt(1,5);
+				if Fulu >= 11 and Panding == 4 then
+				me:AddMsg("[NAME]决定在据点来一次个人的采补盛宴，她从俘虏中挑出了十名男性修士，与他们逐一欢好，将他们浑身精元采补一空。\n事毕，诸男均化为干尸被遗弃在据点中的苗圃一角，用于肥田，见到时候已经不早，[NAME]御剑向山门归去。。");
+				me:AddModifier("Pochu");
+				buff:UpdateStack(-Panding);
+				buff2:UpdateStack(19);
+				else
+					if Fulu >= 4 and Panding == 3 then
+					me:AddMsg("[NAME]从俘虏中挑出了三名男性修士，与他们逐一欢好，将他们浑身精元采补一空。\n事毕，诸男均化为干尸被遗弃在据点中的苗圃一角，用于肥田，见到时候已经不早，[NAME]御剑向山门归去。。");
+					me:AddModifier("Pochu");
+					buff:UpdateStack(-Panding);
+					buff2:UpdateStack(5);
+					else
+						if Fulu >= 3 and Panding == 2 then
+						me:AddMsg("[NAME]从俘虏中挑出了两名男性修士，与他们逐一欢好，将他们浑身精元采补一空。\n事毕，诸男均化为干尸被遗弃在据点中的苗圃一角，用于肥田，见到时候已经不早，[NAME]御剑向山门归去。。");
+						me:AddModifier("Pochu");
+						buff:UpdateStack(-Panding);
+						buff2:UpdateStack(3);
+						else
+							if Fulu >= 2 and Panding == 1 then
+							me:AddMsg("[NAME]从俘虏中挑出了一名男性修士，与他们逐一欢好，将他们浑身精元采补一空。\n事毕，此男化为干尸被遗弃在据点中的苗圃一角，用于肥田，见到时候已经不早，[NAME]御剑向山门归去。。");
+							me:AddModifier("Pochu");
+							buff:UpdateStack(-Panding);
+							buff2:UpdateStack(1);
+							
+							else
+								if Fulu >= 2 then
+								me:AddMsg("[NAME]从俘虏中挑出了一名男性修士，与他们逐一欢好，将他们浑身精元采补一空。\n事毕，此男化为干尸被遗弃在据点中的苗圃一角，用于肥田，见到时候已经不早，[NAME]御剑向山门归去。。");
+								me:AddModifier("Pochu");
+								buff:UpdateStack(-1);
+								buff2:UpdateStack(1);
+								else
+								me:AddMsg("[NAME]没有男性修士俘虏");
+								me:TriggerStory("Secrets_xiangyong_1");
+								buff2:UpdateStack(-1);
+								end
+							end
+						end
+					end
+				end
+				buff:UpdateStack(-1);
+				</OKResult>
+			</li>
+			
+			<li>
+				<Display>返回</Display>  
+				<OKResult>
+				me:TriggerStory("Secrets_xiangyong_1");
+				</OKResult>
+			</li>
+		</Selections>
+	</Story>
+	
+	<Story Name="Secrets_JDcaibu2">
+		<DisplayName>据点</DisplayName>
+		<Desc>[NAME]想要采补谁？。</Desc>
+		<Selections>
+			<li>
+				<Display>普通女俘虏</Display>
+				<OKResult>
+				me:AddModifier("Luding2");
+				local Fulu = me:GetModifierStack("Luding2");
+				local buff = me.npcObj.PropertyMgr:FindModifier("Luding2");
+				me:AddModifier("Story_Caibuzhidao1");
+				local buff2 = me.npcObj.PropertyMgr:FindModifier("Story_Caibuzhidao1");
+				local Panding = me:RandomInt(1,5);
+				if Fulu >= 11 and Panding == 4 then
+				me:AddMsg("[NAME]决定在据点来一次个人的采补盛宴，她从俘虏中挑出了十名普通女性，与他们逐一欢好，将他们浑身精元采补一空。\n事毕，诸女均化为干尸被遗弃在据点中的苗圃一角，用于肥田，见到时候已经不早，[NAME]御剑向山门归去。。");
+				buff:UpdateStack(-Panding);
+				buff2:UpdateStack(9);
+				else
+					if Fulu >= 4 and Panding == 3 then
+					me:AddMsg("[NAME]从俘虏中挑出了三名普通女性，与他们逐一欢好，将他们浑身精元采补一空。\n事毕，诸女均化为干尸被遗弃在据点中的苗圃一角，用于肥田，见到时候已经不早，[NAME]御剑向山门归去。。");
+					buff:UpdateStack(-Panding);
+					buff2:UpdateStack(2);
+					else
+						if Fulu >= 3 and Panding == 2 then
+						me:AddMsg("[NAME]从俘虏中挑出了两名普通女性，与他们逐一欢好，将他们浑身精元采补一空。\n事毕，诸女均化为干尸被遗弃在据点中的苗圃一角，用于肥田，见到时候已经不早，[NAME]御剑向山门归去。。");
+						buff:UpdateStack(-Panding);
+						buff2:UpdateStack(1);
+						else
+							if Fulu >= 2 and Panding == 1 then
+							me:AddMsg("[NAME]从俘虏中挑出了一名普通女性，与他们逐一欢好，将他们浑身精元采补一空。\n事毕，此女化为干尸被遗弃在据点中的苗圃一角，用于肥田，见到时候已经不早，[NAME]御剑向山门归去。。");
+							buff:UpdateStack(-Panding);
+							else
+								if Fulu >= 2 then
+								me:AddMsg("[NAME]从俘虏中挑出了一名普通女性，与他们逐一欢好，将他们浑身精元采补一空。\n事毕，此女化为干尸被遗弃在据点中的苗圃一角，用于肥田，见到时候已经不早，[NAME]御剑向山门归去。。");
+								buff:UpdateStack(-1);
+								else
+								me:AddMsg("[NAME]没有普通男女俘虏");
+								me:TriggerStory("Secrets_xiangyong_1");
+								buff2:UpdateStack(-1);
+								end
+							end
+						end
+					end
+				end
+				buff:UpdateStack(-1);
+				</OKResult>
+			</li>
+			
+			<li>
+				<Display>美貌的女俘虏</Display>
+				<OKResult>
+				me:AddModifier("Luding4");
+				local Fulu = me:GetModifierStack("Luding4");
+				local buff = me.npcObj.PropertyMgr:FindModifier("Luding4");
+				me:AddModifier("Story_Caibuzhidao1");
+				local buff2 = me.npcObj.PropertyMgr:FindModifier("Story_Caibuzhidao1");
+				local Panding = me:RandomInt(1,5);
+				if Fulu >= 11 and Panding == 4 then
+				me:AddMsg("[NAME]决定在据点来一次个人的采补盛宴，她从俘虏中挑出了十名美貌女子，与他们逐一欢好，将他们浑身精元采补一空。\n事毕，诸女均化为干尸被遗弃在据点中的苗圃一角，用于肥田，见到时候已经不早，[NAME]御剑向山门归去。。");
+				buff:UpdateStack(-Panding);
+				buff2:UpdateStack(9);
+				else
+					if Fulu >= 4 and Panding == 3 then
+					me:AddMsg("[NAME]从俘虏中挑出了三名美貌女子，与他们逐一欢好，将他们浑身精元采补一空。\n事毕，诸女均化为干尸被遗弃在据点中的苗圃一角，用于肥田，见到时候已经不早，[NAME]御剑向山门归去。。");
+					buff:UpdateStack(-Panding);
+					buff2:UpdateStack(2);
+					else
+						if Fulu >= 3 and Panding == 2 then
+						me:AddMsg("[NAME]从俘虏中挑出了两名美貌女子，与他们逐一欢好，将他们浑身精元采补一空。\n事毕，诸女均化为干尸被遗弃在据点中的苗圃一角，用于肥田，见到时候已经不早，[NAME]御剑向山门归去。。");
+						buff:UpdateStack(-Panding);
+						buff2:UpdateStack(1);
+						else
+							if Fulu >= 2 and Panding == 1 then
+							me:AddMsg("[NAME]从俘虏中挑出了一名美貌女子，与他们逐一欢好，将他们浑身精元采补一空。\n事毕，此女化为干尸被遗弃在据点中的苗圃一角，用于肥田，见到时候已经不早，[NAME]御剑向山门归去。。");
+							buff:UpdateStack(-Panding);
+							else
+								if Fulu >= 2 then
+								me:AddMsg("[NAME]从俘虏中挑出了一名美貌女子，与他们逐一欢好，将他们浑身精元采补一空。\n事毕，此女化为干尸被遗弃在据点中的苗圃一角，用于肥田，见到时候已经不早，[NAME]御剑向山门归去。。");
+								buff:UpdateStack(-1);
+								else
+								me:AddMsg("[NAME]没有美貌女子俘虏");
+								me:TriggerStory("Secrets_xiangyong_1");
+								buff2:UpdateStack(-1);
+								end
+							end
+						end
+					end
+				end
+				buff:UpdateStack(-1);
+				</OKResult>
+			</li>
+			
+			<li>
+				<Display>女修士</Display>
+				<OKResult>
+				me:AddModifier("Luding6");
+				local Fulu = me:GetModifierStack("Luding6");
+				local buff = me.npcObj.PropertyMgr:FindModifier("Luding6");
+				me:AddModifier("Story_Caibuzhidao1");
+				local buff2 = me.npcObj.PropertyMgr:FindModifier("Story_Caibuzhidao1");
+				local Panding = me:RandomInt(1,5);
+				if Fulu >= 11 and Panding == 4 then
+				me:AddMsg("[NAME]决定在据点来一次个人的采补盛宴，她从俘虏中挑出了十名女修士，与他们逐一欢好，将他们浑身精元采补一空。\n事毕，诸女均化为干尸被遗弃在据点中的苗圃一角，用于肥田，见到时候已经不早，[NAME]御剑向山门归去。。");
+				buff:UpdateStack(-Panding);
+				buff2:UpdateStack(19);
+				else
+					if Fulu >= 4 and Panding == 3 then
+					me:AddMsg("[NAME]从俘虏中挑出了三名女修士，与他们逐一欢好，将他们浑身精元采补一空。\n事毕，诸女均化为干尸被遗弃在据点中的苗圃一角，用于肥田，见到时候已经不早，[NAME]御剑向山门归去。。");
+					buff:UpdateStack(-Panding);
+					buff2:UpdateStack(5);
+					else
+						if Fulu >= 3 and Panding == 2 then
+						me:AddMsg("[NAME]从俘虏中挑出了两名女修士，与他们逐一欢好，将他们浑身精元采补一空。\n事毕，诸女均化为干尸被遗弃在据点中的苗圃一角，用于肥田，见到时候已经不早，[NAME]御剑向山门归去。。");
+						buff:UpdateStack(-Panding);
+						buff2:UpdateStack(3);
+						else
+							if Fulu >= 2 and Panding == 1 then
+							me:AddMsg("[NAME]从俘虏中挑出了一名女修士，与他们逐一欢好，将他们浑身精元采补一空。\n事毕，此女化为干尸被遗弃在据点中的苗圃一角，用于肥田，见到时候已经不早，[NAME]御剑向山门归去。。");
+							buff:UpdateStack(-Panding);
+							buff2:UpdateStack(1);
+							else
+								if Fulu >= 2 then
+								me:AddMsg("[NAME]从俘虏中挑出了一名女修士，与他们逐一欢好，将他们浑身精元采补一空。\n事毕，此女化为干尸被遗弃在据点中的苗圃一角，用于肥田，见到时候已经不早，[NAME]御剑向山门归去。。");
+								buff:UpdateStack(-1);
+								buff2:UpdateStack(1);
+								else
+								me:AddMsg("[NAME]没有女修士俘虏");
+								me:TriggerStory("Secrets_xiangyong_1");
+								buff2:UpdateStack(-1);
+								end
+							end
+						end
+					end
+				end
+				buff:UpdateStack(-1);
+				</OKResult>
+			</li>
+			
+			<li>
+				<Display>返回</Display>  
+				<OKResult>
+				me:TriggerStory("Secrets_xiangyong_2");
+				</OKResult>
+			</li>
+		</Selections>
+	</Story>
+	
+	<Story Name="Shimenrenwu"  Parent="BaseFillingStory">
+		<DisplayName>城市</DisplayName>
+		<Desc>[NAME]决定执行宗门任务。</Desc>
+		<Selections>
+			<!--<li>
+				<Display>打听秘闻</Display>
+				<Condition>
+				<![CDATA[
+				me:GetSkillLevel("SocialContact") >= me:RandomInt(1, 100)
+				]]>
+				</Condition>
+				<Tip>处世</Tip>
+				<OKResult>me:AddMsg("[NAME]听到有一帮修行者说起修行界最近的传言，[IT]上前试图套话，获得一个秘密。");me:AddSecretFromCache(story.PlaceSecrets);</OKResult>
+				<NOResult>me:AddMsg("[NAME]听到有一帮修行者说起修行界最近的传言，[IT]上前试图套话，但却引起对方的警觉，最后无功而返。");</NOResult>
+			</li>-->
+			<!--<li>
+				<Display>打探地点</Display>
+				<Condition>
+				<![CDATA[
+				me:GetSkillLevel("SocialContact") >= me:RandomInt(5, 16)
+				]]>
+				</Condition>
+				<Tip>处世</Tip>
+				<OKResult>me:AddMsg("[NAME]从过往的商旅口中知道了一个有趣的地方，[IT]略施小术就从那名商旅口中套出了更多信息。");me:UnLockPlaceFromCache(story.PlaceChildren);
+				</OKResult>
+				<NOResult>me:AddMsg("[NAME]并没有打探到什么有价值的信息。");</NOResult>
+			</li>-->
+			<li>
+				<Display>寻觅弟子</Display>
+				<Condition>
+				<![CDATA[
+				(me:GetLuck() + me:GetCharisma()) >= me:RandomInt(5, 15)
+				]]>
+				</Condition>
+				<Tip>机缘与魅力</Tip>
+				<OKResult>me:TriggerStory("Join_Base");</OKResult>
+				<NOResult>me:AddMsg(XT("[NAME]并没有找到合适的修行种子。"));</NOResult>
+			</li>
+
+			<li>
+				<Display>掳掠凡人</Display>
+				<OKResult>me:TriggerStory("Kidnap_Base");</OKResult>
+			</li>
+
+			<li>
+				<Display>助人行善</Display>
+				<OKResult>me:TriggerStory("GodStory_2");</OKResult>
+			</li>
+
+			<li>
+				<Display>采购物资</Display>
+				<OKResult>me:TriggerStory("Business_Base");</OKResult>
+			</li>
+			
+			<li>
+				<Display>返回</Display>
+				<OKResult>
+				me:TriggerStory("City_Base");
+				</OKResult>
+			</li>
+		</Selections>
+	</Story>
+	
+	<Story Name="Huajieliuxiang">
+		<DisplayName>花街柳巷</DisplayName>
+		<Desc>[NAME]穿过了闹市，来到那灯红柳绿的花街。</Desc>
+		<Selections>
+			<li>
+				<Display>万花楼</Display>
+				<OKResult>
+				me:TriggerStory("Wanhualou");
+				</OKResult>
+			</li>	
+			
+			<li>
+				<Display>人伢</Display>
+				<OKResult>
+				me:TriggerStory("Heishirenya");
+				</OKResult>
+			</li>
+			
+			<li>
+				<Display>返回</Display>  
+				<OKResult>
+				me:TriggerStory("City_Base");
+				</OKResult>
+			</li>
+		</Selections>
+	</Story>
+	
+	<Story Name="Wanhualou">
+		<DisplayName>万花楼</DisplayName>
+		<Desc>[NAME]来到了万花楼。</Desc>
+		<Selections>
+			<li>
+				<Display>龟公</Display>
+				<OKResult>
+				me:TriggerStory("Wanhualou_guigong");
+				</OKResult>
+			</li>
+			
+			<li>
+				<Display>鸨母</Display>
+				<OKResult>
+				me:TriggerStory("Wanhualou_laobao");
+				</OKResult>
+			</li>
+			
+			<li>
+				<Display>返回</Display>  
+				<OKResult>me:TriggerStory("Huajieliuxiang");</OKResult>
+			</li>
+		</Selections>
+	</Story>
+	
+	<Story Name="Wanhualou_guigong">
+		<DisplayName>龟公</DisplayName>
+		<Desc>[NAME]走到了龟公面前，打算？</Desc>
+		<Selections>
+			<li>
+				<Display>嫖宿妓子</Display>
+				<OKResult>
+				me:AddModifier("Qian");
+				local Fulu = me:GetModifierStack("Qian");
+				local buff = me.npcObj.PropertyMgr:FindModifier("Qian");
+				if Fulu >= 5 then
+					if me:GetSex() == 1 then
+						if me.npcObj.PropertyMgr.BodyData:PartIsBroken("Genitals") then
+						me:AddMsg("龟公将[NAME]引入了一间厢房，妓子随后便到，可惜[NAME]是个太监，只能把妓子搂入怀中上下把玩一番。\n事毕，[NAME]便离开了妓馆。");
+						me:AddModifier("Pochu");
+						else
+							if me:GetGongName() == "Gong_1701_Tu" then
+							me:AddMsg("龟公将[NAME]引入了一间厢房，妓子随后便到，可惜[NAME]把妓子搂入怀中，掏出胯下肉棒，插入妓子肉穴上下翻飞巫山几度，待妓子泄身神色迷离之际，[NAME]运起功法将妓子采补一番。\n事毕，[NAME]便离开了妓馆，[NAME]感觉自身的修为提升了。");
+							me:AddPracticeResource("Stage",me:GetGLevel() * 500);
+							else
+							me:AddMsg("龟公将[NAME]引入了一间厢房，妓子随后便到，可惜[NAME]把妓子搂入怀中，掏出胯下肉棒，插入妓子肉穴上下翻飞巫山几度。\n事毕，[NAME]便离开了妓馆。");
+							end
+						end
+					else
+					me:TriggerStory("Guigong_jujuenv");
+					end
+				else
+					if me.npcObj.PropertyMgr.BodyData:PartIsBroken("Genitals") then
+					me:AddMsg("[NAME]摸了摸口袋，又摸了摸下身心道一句：“既没屌也没钱……这个地方与我无缘”便转身离去了。");
+					me:TriggerStory("Huajieliuxiang");
+					else
+					me:TriggerStory("Guigong_jujuenan");
+					end
+				end
+				buff:UpdateStack(-1);
+				</OKResult>
+			</li>
+			
+			<li>
+				<Display>邀约花魁</Display>
+				<OKResult>
+				me:TriggerStory("Wanhualou_huakui");
+				</OKResult>
+			</li>
+			
+			<li>
+				<Display>返回</Display>  
+				<OKResult>
+				me:TriggerStory("Wanhualou");
+				</OKResult>
+			</li>
+		</Selections>
+	</Story>
+	
+	<Story Name="Wanhualou_huakui">
+		<DisplayName>金铃儿</DisplayName>
+		<Desc>[NAME]想要与万花楼花魁金铃儿见上一见，却被鸨母拦住，鸨母曰：“金铃儿小姐可不是但凡来人便可见得的。”/n[NAME]决定？</Desc>
+		<Selections>
+			<li>
+				<Display>展现实力</Display>
+				<OKResult>
+				local JLEHG = me:GetModifierStack("Jinlinger");
+				if JLEHG >= 80 then
+					if me:GetSex() == 1 then
+					me:AddMsg("尚未等[NAME]开口，阁楼中则已传出那个清甜好听的声音：“奴家待公子多时了！”。鸨母闻言退至一边让[NAME]上楼与金铃儿欢好，一夕风流。\n（金铃儿第一章完成，第二章还没做）");
+					else
+					me:AddMsg("尚未等[NAME]开口，阁楼中则已传出那个清甜好听的声音：“奴家待小姐多时了！”。鸨母闻言退至一边让[NAME]上楼与金铃儿欢好，一夕风流。\n（金铃儿第一章完成，第二章还没做）");
+					end
+				else
+				me:AddModifier("Jinlinger");
+				local buff = me.npcObj.PropertyMgr:FindModifier("Jinlinger");
+					if me:GetSex() == 2 then
+						if me:GetModifierStack("Story_Caibuzhidao1") >= 100 then
+						me:AddMsg("[NAME]高呼：“自古佳人配英雄，本姑娘觉得自己算是个女中豪杰，金铃儿小姐可愿一见？”\n只闻阁楼中传来一阵银铃般的轻笑后房门自动弹开，[NAME]信步进入阁楼，突觉灵气被封无法调用，暗道一声“不好！”便打算退出房间，却被房中的长发女子伸手拦住，女子笑道：“姐姐莫慌，奴家只是试试姐姐。”言毕便轻鼓两掌唤来数名手持双头龙或是角先生的女子，/n一夕狂欢之后，诸女均败于[NAME]身下。");
+						buff:UpdateStack(99);
+						else
+						me:AddMsg("[NAME]高呼：“自古佳人配英雄，本姑娘觉得自己算是个女中豪杰，金铃儿小姐可愿一见？”\n只闻阁楼中传来一阵银铃般的轻笑后房门自动弹开，[NAME]信步进入阁楼，突觉灵气被封无法调用，暗道一声“不好！”便打算退出房间，却被房中的长发女子伸手拦住，女子笑道：“姐姐莫慌，奴家只是试试姐姐。”言毕便轻鼓两掌唤来数名手持双头龙或是角先生的女子。/n一夕狂欢之后，[NAME]被诸女弄的欲生欲死意乱神迷后，金铃儿只是不满的说了一句：“抬下去罢”，[NAME]便被抬出了阁楼。");
+						end
+					else
+						if me.npcObj.PropertyMgr.BodyData:PartIsBroken("Genitals") then
+						me:AddMsg("[NAME]暗道一句：“我特么是个太监，我展现什么实力啊……”便转身离开了。");
+						me:TriggerStory("Wanhualou");
+						else
+							if me:GetPhysique() > 9 then
+							me:AddMsg("[NAME]高呼：“自古佳人配英雄，本公子觉得自己算得当世豪杰，金铃儿小姐可愿一见？”\n只闻阁楼中传来一阵银铃般的轻笑：“这个你得问妈妈”，[NAME]只觉手臂上一紧，便听那鸨母一句：“公子请吧！”\n欲见花魁没想到要先日这肥婆鸨母，不知什么坚定了[NAME]的决心，[NAME]与那肥婆鸨母大战百余回合后终于获得了胜利，然而眼下也着实没有什么兴趣了，只到金铃儿阁楼下高呼一句：“今日公子打道回府了，希望下次得小姐垂帘”，便转身离去了。");
+							buff:UpdateStack(5);
+							else
+							me:AddMsg("[NAME]高呼：“自古佳人配英雄，本公子觉得自己算得当世豪杰，金铃儿小姐可愿一见？”\n只闻阁楼中传来一阵银铃般的轻笑：“这个你得问妈妈”，[NAME]只觉手臂上一紧，便听那鸨母一句：“公子请吧！”\n欲见花魁没想到要先日这肥婆鸨母，不知什么坚定了[NAME]的决心，[NAME]与那肥婆鸨母大战百余回合后败下阵来，迷离之间只听门外传来一句：“这般废物还自称豪杰，抬下去罢”，[NAME]便被扔到了花街之上。");
+							end
+						end
+					end
+				buff:UpdateStack(-1);
+				end
+				</OKResult>
+			</li>
+			
+			<li>
+				<Display>展现才学</Display>
+				<OKResult>
+				me:AddMsg("没做完，别点。");
+				me:TriggerStory("Wanhualou");
+				</OKResult>
+			</li>
+			
+			<li>
+				<Display>走开</Display>
+
+				<OKResult>
+				me:AddMsg("[NAME]心说还是不要没事找事了，便转身离开了万花楼。");
+				me:TriggerStory("Wanhualou");
+				</OKResult>
+			</li>
+		</Selections>
+	</Story>
+	
+	<Story Name="Guigong_jujuenv">
+		<DisplayName>龟公</DisplayName>
+		<Desc>[NAME]到了万花楼前，两手插腰撇着步子便一步三晃迈将进去，忽而被一贼眉鼠眼的龟公拦下，那龟公笑曰:“客官，咱这店不接女客，若你要是入行，且随我来！”。</Desc>
+		<Selections>
+			<li>
+				<Display>武力</Display>
+				<OKResult>
+				if me:GetCharisma() > 7 then
+				me:AddMsg("[NAME]定睛一看对方竟然将自己指向管理妓女的鸨母，不由得怒从心起，喝骂道:“你这狗一样的腌赞泼才，睁大你的狗眼看好了，姑奶奶乃是金丹（元婴）真人，还不速速去把姑娘找来！”。\n那龟公却面不改色道:“就算是金丹（元婴）真人，也不能坏了行规！”。\n[NAME]大怒，身上五彩霞光一现已经祭出法宝，赫然是一八宝七彩六欲五行四相混元琉璃双头龙，只见她单手戟指龟公:“你莫不是来消遣姑奶奶的”，言毕便操使法宝一番打砸后恐合欢宗强者的支援，便逃离了现场。\n万花楼乃合欢宗产业，由于[NAME]实力强横，所以驻守于此的合欢弟子没有跳出来找死，却还是将此事件回禀宗门。");
+				me:AddSchoolRelation(11,-500);
+				else
+				me:AddMsg("[NAME]定睛一看对方竟然将自己指向管理妓女的鸨母，不由得怒从心起，喝骂道:“你这狗一样的腌赞泼才，睁大你的狗眼看好了，姑奶奶乃是练气（结丹）修士，还不速速去把姑娘找来！”。\n那龟公却面不改色道:“就算是练气（结丹）修士，也不能坏了行规！”。\n[NAME]大怒，便欲祭出法宝打砸一番，却未曾想到转瞬间自己的护体灵气被人击碎，击碎自己护体灵气的赫然是一八宝七彩六欲五行四相混元琉璃双头龙，在昏死过去的一瞬之前，[NAME]只闻驭使此法宝的长发女修道:“什么玩意也赶来我合欢宗的场子寻死，瞧你略有几分姿色，便在我这接客百次抵罪吧”，言毕长发女修便封住[NAME]周身大穴将其交于鸨母。\n[NAME]于万花楼中，被迫接待了上百个嫖客后，重获了自由之身。");
+				me:AddSchoolRelation(11,-50);
+				me:AddTitle(XT("妓女"),string.format(XT("第%s年，因为在万花楼捣乱，被驻扎于此的合欢弟子击败后，强制接客百余人。"),4));
+				me:AddMemery("在历练途中被迫当妓女接客百余人！");
+				me:AddModifier("Pochu");
+				end
+				</OKResult>
+			</li>
+			
+			<li>
+				<Display>砸钱</Display>
+				<OKResult>
+				me:AddModifier("Qian");
+				local Fulu = me:GetModifierStack("Qian");
+				local buff = me.npcObj.PropertyMgr:FindModifier("Qian");
+				if Fulu >= 501 then
+				me:AddMsg("[NAME]从袋中掏出了百两纹银：“这能不能让你万花楼规矩改改？”\n龟公依旧口中说着什么“咱这是合欢宗的正规场子，不接女客。”一面赔笑着拒绝了。\n恼怒之下[NAME]又掏出了四百两往柜台上一撂，话头未起龟公便躬下身子喊到“楼上的姑娘下来接豪客啦！”\n事实证明，有钱就是可以使鬼推磨，[NAME]与万花楼妓子们胡混了一夜，也因[NAME]的豪爽，合欢派对本门的好感提升了。");
+				buff:UpdateStack(-500);
+				me:AddSchoolRelation(11,50);
+				else
+					if Fulu >= 101 then
+					me:AddMsg("[NAME]从袋中掏出了百两纹银：“这能不能让你万花楼规矩改改？”\n龟公依旧口中说着什么“咱这是合欢宗的正规场子，不接女客。”一面赔笑着拒绝了。\n无奈之下[NAME]悻悻的离开了万花楼。");
+					me:TriggerStory("Huajieliuxiang");
+					else
+					me:AddMsg("[NAME]摸了摸口袋，暗道一句：“没钱还是别装X了吧”便离开了万花楼”。");
+					me:TriggerStory("Huajieliuxiang");
+					end
+				end
+				buff:UpdateStack(-1);
+				</OKResult>
+			</li>
+			
+			<li>
+				<Display>入行</Display>
+				<OKResult>
+				me:AddMsg("[NAME]目光随着龟公的手指，看到了那个笑吟吟的鸨母。");
+				me:TriggerStory("Wanhualou_laobao");
+				</OKResult>
+			</li>
+			
+			<li>
+				<Display>走开</Display>  
+				<OKResult>me:TriggerStory("Wanhualou");</OKResult>
+			</li>
+		</Selections>
+	</Story>
+	
+	<Story Name="Guigong_jujuenan">
+		<DisplayName>龟公</DisplayName>
+		<Desc>龟公一脸嫌弃的看着[NAME]说道：“这位客官，人若是没钱呢，虽然嫖不得妓，但是还是可以去死的么，咱这可是合欢宗的产业，你不会是要来找死的吧？”。</Desc>
+		<Selections>
+			<li>
+				<Display>武力</Display>
+				<OKResult>
+				if me:GetCharisma() > 7 then
+				me:AddMsg("[NAME]闻言不由得怒从心起，喝骂道:“呔，你这狗一样的腌赞泼才，睁大你的狗眼看好了，本君乃是金丹（元婴）真人，还不速速去把姑娘找来！”。\n那龟公却面不改色道:“就算是金丹（元婴）真人，也不能白嫖是不！”。\n[NAME]怒极，拍案而起，只见二楼一道华光闪烁向自己袭来，[NAME]定睛一看那法宝赫然是一八宝七彩六欲五行四相混元琉璃双头龙，只见那长发女修伸手遥指[NAME]怒喝道:“你莫不是来我合欢宗的地头寻死的？”，言毕便操使法宝与[NAME]战作一团。\n乱战之下，合欢女修略逊一筹，被[NAME]寻得一个机会所败，[NAME]眼看四下混乱无比，心道一句：“还是走为上策吧”便携着自己的战利品，也就是那位战败的合欢女弟子，趁乱离开了万花楼。");
+				me:AddSchoolRelation(11,-500);
+				me:AddModifier("Luding6");
+				else
+				me:AddMsg("[NAME]闻言不由得怒从心起，喝骂道:“呔，你这狗一样的腌赞泼才，睁大你的狗眼看好了，本君乃是练气（结丹）修士，还不速速去把姑娘找来！”。\n那龟公却面不改色道:“就算是练气（结丹）真人，也不能白嫖是不！”。\n[NAME]怒极，拍案而起，只见二楼一道华光闪烁向自己袭来，[NAME]定睛一看那法宝赫然是一八宝七彩六欲五行四相混元琉璃双头龙，只见那长发女修伸手遥指[NAME]怒喝道:“你莫不是来我合欢宗的地头寻死的？”，言毕便操使法宝与[NAME]战作一团。\n数招过后，[NAME]略逊一筹，被合欢女修寻得一个机会催使法宝砸断了[NAME]四肢后带回房间享用了一番，直到[NAME]精元全被对方摄去后，被削成人棍的[NAME]才被丢出了万花楼。");
+				me:AddSchoolRelation(11,-100);me:AddSchoolScore(1,-200);me:AddDamage("Fabao_CutOff","LeftScapula", 1, XT("砸断"));me:AddDamage("Fabao_CutOff","RightScapula", 1, XT("砸断"));me:AddDamage("Fabao_CutOff","LeftThighbone", 1, XT("砸断"));me:AddDamage("Fabao_CutOff","RightThighbone", 1, XT("砸断"));me:AddModifier("Story_Caibuzhidao2");
+				end
+				</OKResult>
+			</li>
+			
+			<li>
+				<Display>走开</Display>
+				<OKResult>
+				me:AddMsg("[NAME]心说还是不要没事找事了，便转身离开了万花楼。");
+				me:TriggerStory("Wanhualou");
+				</OKResult>
+			</li>
+		</Selections>
+	</Story>
+	
+	<Story Name="Wanhualou_laobao">
+		<DisplayName>鸨母</DisplayName>
+		<Desc>[NAME]走到了鸨母面前，打算？</Desc>
+		<Selections>
+			<li>
+				<Display>兼职</Display>
+				<OKResult>
+				me:AddModifier("Qian");
+				local buff = me.npcObj.PropertyMgr:FindModifier("Qian");
+				local chu = me:GetModifierStack("Pochu");
+				if me:GetSex() > 1 then
+					if chu == 0 then
+						if me:GetCharisma() > 9 then
+						buff:UpdateStack(49999);
+						local Fulu = me:GetModifierStack("Qian");
+						me:AddMsg(string.format(XT("[NAME]打算卖身赚钱。\n[NAME]既有着惊世绝代的容貌，又是个修练有成的女修，还是个未经人事的处子。\n此等奇货自是引得万花楼内众嫖客哄抢竞价，最终一巨富以十万两白银夺得头筹一亲[NAME]香泽。\n事毕，刨去楼中抽成，[NAME]独得五万两白银，当前白银：%s两"), tostring(Fulu)));
+						else
+							if me:GetCharisma() > 6 then
+							buff:UpdateStack(14999);
+							local Fulu = me:GetModifierStack("Qian");
+							me:AddMsg(string.format(XT("[NAME]打算卖身赚钱。\n[NAME]长得清丽脱俗，又是个修练有成的女修，还是个未经人事的处子。\n此等特级货色自是引得万花楼内众嫖客哄抢竞价，最终一豪客以三万两白银夺得头筹一亲[NAME]香泽。\n事毕，刨去楼中抽成，[NAME]独得一万五千两白银，当前白银：%s两"), tostring(Fulu)));
+							else
+								if me:GetCharisma() > 3 then
+								buff:UpdateStack(4999);
+								local Fulu = me:GetModifierStack("Qian");
+								me:AddMsg(string.format(XT("[NAME]打算卖身赚钱。\n[NAME]长得平平无奇，可毕竟是个修练有成的女修，还是个未经人事的处子。\n此等高级货色自是引得万花楼内众嫖客哄抢竞价，最终一大户以一万两白银夺得头筹一亲[NAME]香泽。\n事毕，刨去楼中抽成，[NAME]独得五千两白银，当前白银：%s两"), tostring(Fulu)));
+								else
+								buff:UpdateStack(999);
+								local Fulu = me:GetModifierStack("Qian");
+								me:AddMsg(string.format(XT("[NAME]打算卖身赚钱。\n[NAME]长得着实丑陋，可毕竟是个修练有成的女修，还是个未经人事的处子。\n虽然这种长相在万花楼里刷马桶都不配，可毕竟取女修的处子之身据说能壮阳延命，最终一地主以两千两白银夺得头筹一亲[NAME]香泽。\n事毕，刨去楼中抽成，[NAME]独得一千两白银，当前白银：%s两"), tostring(Fulu)));
+								end
+							end
+						end
+						me:AddModifier("Pochu");
+					else
+						if me:GetCharisma() > 9 then
+						buff:UpdateStack(99);
+						local Fulu = me:GetModifierStack("Qian");
+						me:AddMsg(string.format(XT("[NAME]打算卖身赚钱。\n[NAME]既有着惊世绝代的容貌，又是个修练有成的女修，虽然处子之身不在但是谁又不想日此等绝美的女神仙呢，哄抢之下一嫖客以两百两白银夺得头筹一亲[NAME]香泽。\n事毕，刨去楼中抽成，[NAME]独得一百两白银，当前白银：%s两"), tostring(Fulu)));
+						else
+							if me:GetCharisma() > 6 then
+							buff:UpdateStack(49);
+							local Fulu = me:GetModifierStack("Qian");
+							me:AddMsg(string.format(XT("[NAME]打算卖身赚钱。\n[NAME]长得清丽脱俗，又是个修练有成的女修，虽然处子之身不在但是谁又不想日好看的女神仙呢，哄抢之下一嫖客以一百两白银夺得头筹一亲[NAME]香泽。\n事毕，刨去楼中抽成，[NAME]独得一百两白银，当前白银：%s两"), tostring(Fulu)));
+							else
+								if me:GetCharisma() > 3 then
+								buff:UpdateStack(24);
+								local Fulu = me:GetModifierStack("Qian");
+								me:AddMsg(string.format(XT("[NAME]打算卖身赚钱。\n[NAME]长得平平无奇，可毕竟是个修练有成的女修，虽然处子之身不在但是至少是日那高高在上的女神仙啊，不花太多钱总不是太亏的，哄抢之下一嫖客以五十两白银夺得头筹一亲[NAME]香泽。\n事毕，刨去楼中抽成，[NAME]独得二十五两白银，当前白银：%s两"), tostring(Fulu)));
+								else
+								me:AddMsg(string.format(XT("[NAME]打算卖身赚钱。\n[NAME]长得着实丑陋，可毕竟是个修练有成的女修，虽然处子之身不在但自己毕竟是个凡人眼中的女神仙啊[NAME]觉得自己还是能卖的。\n奈何这个看脸的修真界，那该死的老鸨居然拒绝了[NAME]的兼职……\n当前白银：%s两"), tostring(Fulu)));
+								end
+							end
+						end
+					end
+				else
+				me:AddMsg("上下打量了一番[NAME]冷笑道：“这位公子，我们这可是合欢宗的正规场子，只做正当的皮肉生意，这边不接受搞基比剑的嗷！”。\n万花楼只收女性兼职人员，[NAME]只能无奈的离开了。");
+				me:TriggerStory("Huajieliuxiang");
+				end
+				</OKResult>
+			</li>
+			
+			<li>
+				<Display>贩卖女俘虏</Display>
+				<OKResult>
+				me:TriggerStory("Wanhualou_laobao_mainv");
+				</OKResult>
+			</li>
+			
+			<li>
+				<Display>返回</Display>  
+				<OKResult>me:TriggerStory("Wanhualou");</OKResult>
+			</li>
+		</Selections>
+	</Story>
+	
+	<Story Name="Wanhualou_laobao_mainv">
+		<DisplayName>鸨母</DisplayName>
+		<Desc>[NAME]带了一批女子来到鸨母面前，鸨母一一报价道：“这些长相普通女子的就五两一个，那些好看的就十五两一个，女修真者？那个我们不收的好吧，毕竟万一是那家大佬的亲戚，这不是给合欢宗惹祸么。”。</Desc>
+		<Selections>
+			<li>
+				<Display>卖掉一名普通女俘虏</Display>
+				<OKResult>
+				me:AddModifier("Luding2");
+				me:AddModifier("Qian");
+				local Fulu = me:GetModifierStack("Luding2");
+				local buff = me.npcObj.PropertyMgr:FindModifier("Luding2");
+				local buff2 = me.npcObj.PropertyMgr:FindModifier("Qian");
+				if Fulu > 1 then
+				buff:UpdateStack(-2);
+				buff2:UpdateStack(4);
+				local Fulu = me:GetModifierStack("Luding2");
+				me:AddMsg(string.format(XT("[NAME]卖掉了一名女俘虏，当前普通女俘虏：%s人"), tostring(Fulu)));
+				else
+				me:AddMsg("[NAME]没有普通女俘虏可以售卖");
+				buff:UpdateStack(-1);
+				buff2:UpdateStack(-1);
+				end
+				me:TriggerStory("Wanhualou_laobao");
+				</OKResult>
+			</li>
+			
+			<li>
+				<Display>卖掉一名美貌女俘虏</Display>
+				<OKResult>
+				me:AddModifier("Luding4");
+				me:AddModifier("Qian");
+				local Fulu = me:GetModifierStack("Luding4");
+				local buff = me.npcObj.PropertyMgr:FindModifier("Luding4");
+				local buff2 = me.npcObj.PropertyMgr:FindModifier("Qian");
+				if Fulu > 1 then
+				buff:UpdateStack(-2);
+				buff2:UpdateStack(14);
+				local Fulu = me:GetModifierStack("Luding4");
+				me:AddMsg(string.format(XT("[NAME]卖掉了一名美貌女俘虏，当前美貌女俘虏：%s人"), tostring(Fulu)));
+				else
+				me:AddMsg("[NAME]没有美貌女俘虏可以售卖");
+				buff:UpdateStack(-1);
+				buff2:UpdateStack(-1);
+				end
+				me:TriggerStory("Wanhualou_laobao");
+				</OKResult>
+			</li>
+			
+			<li>
+				<Display>返回</Display>  
+				<OKResult>me:TriggerStory("Wanhualou_laobao");</OKResult>
+			</li>
+		</Selections>
+	</Story>
+	
+	<Story Name="Heishirenya">
+		<DisplayName>人伢</DisplayName>
+		<Desc>[NAME]寻到了人伢子面前，人伢上下打量了一番[NAME]开始报价“矿上要苦力，男的，十个五两，还有一些贵妇人要收一批俊男，一个五两。”。</Desc>
+		<Selections>
+			<li>
+				<Display>卖苦力</Display>
+				<OKResult>
+				me:AddModifier("Luding");
+				me:AddModifier("Qian");
+				local Fulu = me:GetModifierStack("Luding");
+				local buff = me.npcObj.PropertyMgr:FindModifier("Luding");
+				local buff2 = me.npcObj.PropertyMgr:FindModifier("Qian");
+				if Fulu > 10 then
+				buff:UpdateStack(-11);
+				buff2:UpdateStack(4);
+				local Fulu = me:GetModifierStack("Luding");
+				me:AddMsg(string.format(XT("[NAME]卖掉了十名男俘虏，当前普通男俘虏：%s人"), tostring(Fulu)));
+				else
+				me:AddMsg("[NAME]没有普通男俘虏可以售卖");
+				buff:UpdateStack(-1);
+				buff2:UpdateStack(-1);
+				end
+				me:TriggerStory("Huajieliuxiang");
+				</OKResult>
+			</li>
+			
+			<li>
+				<Display>卖俊男</Display>
+				<OKResult>
+				me:AddModifier("Luding3");
+				me:AddModifier("Qian");
+				local Fulu = me:GetModifierStack("Luding3");
+				local buff = me.npcObj.PropertyMgr:FindModifier("Luding3");
+				local buff2 = me.npcObj.PropertyMgr:FindModifier("Qian");
+				if Fulu > 1 then
+				buff:UpdateStack(-2);
+				buff2:UpdateStack(4);
+				local Fulu = me:GetModifierStack("Luding3");
+				me:AddMsg(string.format(XT("[NAME]卖掉了一名俊男的俘虏，当前俊美的男俘虏：%s人"), tostring(Fulu)));
+				else
+				me:AddMsg("[NAME]没有普通男俘虏可以售卖");
+				buff:UpdateStack(-1);
+				buff2:UpdateStack(-1);
+				end
+				me:TriggerStory("Huajieliuxiang");
+				</OKResult>
+			</li>
+			
+			<li>
+				<Display>离开</Display>  
+				<OKResult>me:TriggerStory("Huajieliuxiang");</OKResult>
+			</li>
+		</Selections>
+	</Story>
+</List></Stories>

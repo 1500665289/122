@@ -1,0 +1,531 @@
+<Stories><List>	
+	<Story Name="Storyshiqi_1">
+		<DisplayName>游历</DisplayName>
+		<Kind>Story</Kind>
+		<Desc>[NAME]游历途中，一群习武之人正在围攻一名少女。</Desc>
+		<Selections>
+			<li>
+				<Display>插手</Display>  
+				<OKResult><![CDATA[
+				me:AddMsg(XT("只是区区习武之人，自然不是[NAME]的对手，[NAME]如同谪仙降世轻而易举的制住了那些武者。眼见救星到来，只见那女子仅仅抱住[NAME]小腿，哭诉着自己的遭遇。\n依少女所说，自家本为普通商贾之家于当地一豪门嫡子有着婚约，可自己却因天赋异禀被一女性门派所看重后收为核心弟子，众所周知自古女性门只要不是出去卖和搞黄色的，基本都是要守住阴元保持处子之身的，自己的师傅自然就带着自己上门退婚。"));
+				me:TriggerStory("jiuqishaonianqiong_1");
+				]]></OKResult>
+			</li>
+			
+			<li>
+				<Display>离去</Display>  
+				<OKResult><![CDATA[
+				me:AddMsg(XT("[NAME]决定还是不管这场闲事，转身离开。"));
+				]]></OKResult>
+			</li>
+		</Selections>
+	</Story>
+	
+	<Story Name="jiuqishaonianqiong_1">
+		<DisplayName>少女的哭诉</DisplayName>
+		<Desc>可是何人又能想到，只是如此合情合理的要求，对方居然会觉得是奇耻大辱，还腆着脸哔哔了一段“三十年河东三十年河西”什么的，摸着良心说，真是女人心太软，要是换个正常的名门正派来你家退婚，你哔哔赖赖什么三十年的，早就杀你全家顺便给你挂个勾结千魂邪教的名头了，奈何师尊心地善良居然真和这脑瘫定下三年之约，更扯的是这个原本没有习武天赋的憨批，居然被青莲剑宗那么高级的修真门派所看上，说他有什么鬼的贱灵根特别适合修炼鬼青莲贱气，仅仅三年这脑瘫就神功大成踏平自家宗门，师尊拼尽全力依旧无法力敌被打成重伤不治身亡，而师姐妹们这百般受辱与此獠，在一次机缘巧合之下，自己有幸逃脱而出，而后便是这无穷无尽的追索。</Desc>
+		<Selections>
+			<li>
+				<Display>帮助少女</Display>  
+				<OKResult><![CDATA[
+				me:AddMsg(XT("看着眼前带雨梨花的少女，[NAME]心火大起，暗道一句“蜀山上的那帮瘪三平时人模狗样儿装的挺像人的，没想到私下却是这等人渣”，着实令人愤怒。"));
+				me:TriggerStory("jiuqishaonianqiong_2");
+				]]></OKResult>
+			</li>
+			
+			<li>
+				<Display>抓住少女</Display>  
+				<OKResult><![CDATA[
+				me:AddMsg(XT("看着眼前带雨梨花的少女，[NAME]思前想后觉得为了一个凡人女子得罪青莲剑宗真的没道理的，转念之间便决定抓住这个少女，给她口中的那个“带恶人”送去，岂不是可以取得青莲剑宗好感么，[NAME]当机立断制住了少女便往她之前所说的门派前去。"));
+				me:TriggerStory("jiuqishaonianqiong_3");
+				]]></OKResult>
+			</li>
+			
+			<li>
+				<Display>欺辱少女</Display>  
+				<OKResult><![CDATA[
+				me:AddMsg(XT("看着眼前带雨梨花的少女，[NAME]心道“为了一个凡人去得罪青莲剑宗真的没道理的，但是要去舔蜀山上那群道貌岸然的人渣，好像更没道理。”要说直接转身离去把，眼前这个容资秀丽可以算上美人的少女，估计还是要被那些武者侮辱，这着实有些浪费！\n不如……"));
+				me:TriggerStory("jiuqishaonianqiong_4");
+				]]></OKResult>
+			</li>
+			
+			<li>
+				<Display>离去</Display>  
+				<OKResult><![CDATA[
+				me:AddMsg(XT("[NAME]仔细想想，蜀山上的青莲剑宗这个惹不起的呀，为了一个凡人的武者，去得罪修真界大佬，真的没道理的嗷，于是转身离开了。"));
+				]]></OKResult>
+			</li>
+		</Selections>
+	</Story>
+	
+	<Story Name="jiuqishaonianqiong_2">
+		<DisplayName>帮助少女</DisplayName>
+		<Desc>[NAME]带着少女来到她原本的门派，此处已被那个青莲剑宗弟子所占据，少女的师姐师妹们均被这个人渣所奴役霸占好不凄惨。\n[NAME]运起灵气祭出法宝，法宝携灵气向该人激射而去，正沉迷肉欲的青莲剑宗弟子甚至没有反应的时间，直接被[NAME]用秘宝砸碎了头颅。</Desc>
+		<Selections>
+			<li>
+				<Display>继续</Display>  
+				<Tip>青莲好感降低</Tip>
+				<OKResult><![CDATA[
+				me:AddMsg(XT("击杀了该名青莲弟子后，对方身上一块莲型玉玦自动碎裂，青色光芒一闪而逝，[NAME]暗道一声“不好”，便驾驭着法宝玩命似的逃走了。\n尚未等[NAME]逃离现场多久，一道强悍无比的神念降临此地，摄起死去的青莲弟子，想顺手斩杀四周凡女泄，但估算自己劫数将近恐多增变数，只能无能狂怒的大喊一句“太一余孽，给本尊等着！”。"));me:AddSchoolRelation(6,-500);
+				]]></OKResult>
+			</li>
+		</Selections>
+	</Story>
+	
+		<Story Name="jiuqishaonianqiong_3">
+		<DisplayName>抓住少女</DisplayName>
+		<Desc>[NAME]抓着少女来到她原本的门派，此处已被那个青莲剑宗弟子所占据，少女的师姐师妹们均被这个人渣所奴役霸占好不凄惨。\n[NAME]将少女献与青莲宗弟子，对方大喜过望，只见对方一边哔哔着什么“贱人当初我就说过三十年……”什么的脑瘫台词，一边对少女施暴，数分钟后对方高呼一身后，便瘫坐在地，想是已经获得了满足的样子。\n歇息片刻之后青莲宗弟子对[NAME]表示感谢并伸手递来一枚丹药。</Desc>
+		<Selections>
+			<li>
+				<Display>服下丹药</Display>  
+				<Tip>提升寿命</Tip>
+				<OKResult><![CDATA[
+				me:AddMsg(XT("[NAME]服下了对方递来的丹药，丹药入口即化，[NAME]感觉自己年轻了不少。"));me:ModifierProperty("MaxAge",10);me:AddSchoolRelation(6,30);
+				]]></OKResult>
+			</li>
+			
+			<li>
+				<Display>欲擒故纵</Display>  
+				<Tip>不脑瘫建议不要选这个</Tip>
+				<OKResult><![CDATA[
+				me:AddMsg(XT("[NAME]决定欲擒故纵想说不定拒绝了会有更好的东西，连连摆手拒绝了对方，声称助人为乐又何须报酬，对方一听赶忙把丹药收了回去，毕竟这玩意也挺值钱的，刚刚就是一时上头了才摸出来的。。"));me:AddSchoolRelation(6,30);
+				]]></OKResult>
+			</li>
+			
+			<li>
+				<Display>勾引对方</Display>  
+				<Tip>魅力，性别，功法判定，建议非合欢女姓别手贱熬</Tip>
+				<OKResult><![CDATA[
+				if me:GetSex() > 1 then
+					if me:GetCharisma() > 7 then
+						if me:GetGongName() == "Gong_1701_Tu" then
+						me:AddMsg(XT("[NAME]见对方也算的上唇红齿白的小郎君，试图诱惑对方来上那么一炮，之见[NAME]轻佻香肩，对方变色授魂与，迫不及待的扑了上来，一手褪去[NAME]的亵裤，小兄弟便随后而至，许是刚刚射过一发，这次坚持了一刻有余才将阳精灌入[NAME]下体，可这短短一刻钟又如何能使得[NAME]心满意足，之见[NAME]双腿箍住对方腰间，也不管的对方是否已经软了下来，就是不让对方拔出来，许是泡了一会后因为蜜穴的压力，对方的小兄弟次站了起来，如此循环数次之后，对方发现这从舒畅的双修变成了单方面的采补，奈何此时已经被摄走了大量的精元，无法反抗了。\n[NAME]吸干了青莲剑宗弟子，对方甚至没有机会捏碎求救玉玦。"));
+						me:AddMemery("在一次历练的途中倚靠腿间小口活活将一个青莲宗弟子抽成了人干！");me:AddModifier("Story_Caibuzhidao1");me:AddModifier("Pochu");
+						else
+						me:AddMsg(XT("[NAME]见对方也算的上唇红齿白的小郎君，试图诱惑对方来上那么一炮，之见[NAME]轻佻香肩，对方变色授魂与，迫不及待的扑了上来，一手褪去[NAME]的亵裤，小兄弟便随后而至，许是刚刚射过一发，这次坚持了一刻有余才缴械投降，对方在[NAME]身上驰骋了个爽后便睡去，由于[NAME]也不会什么采补秘法，这一炮也就算是白挨了。"));
+						me:AddModifier("Pochu");
+						end
+					else
+					me:AddMsg(XT("[NAME]见对方也算的上唇红齿白的小郎君，试图诱惑对方来上那么一炮，可显然对方显然看不上[NAME]腆着脸说什么“我们青莲剑宗是名门正派，不是那些邪道宵小，不能乱搞男女关系的”，完全不顾他刚才还当着[NAME]面强奸了他口中的前未婚妻。"));me:AddSchoolRelation(6,-30);
+					end
+				else
+				me:AddMsg(XT("[NAME]见对方也算的上唇红齿白的小郎君，试图诱惑对方来上那么一炮，可显然对方不是玻璃，恼怒的拒绝了[NAME]。"));me:AddSchoolRelation(6,-10);
+				end
+				]]></OKResult>
+			</li>
+		</Selections>
+	</Story>
+	
+	<Story Name="jiuqishaonianqiong_4">
+		<DisplayName>欺辱少女</DisplayName>
+		<Desc>[NAME]心道：“此女子也算得上是眉目娇媚神姿秀丽，自己虽不愿为了她与青莲剑宗为敌，亦不想擒了她给人送上门去当个狗腿子，可若真转身离去这姑娘结果想必也是在追索中被擒，说不定还要被那些粗蛮的武夫所玷污”本着那么好看的姑娘给武夫玷污着实可惜不如自己睡的中心思想，[NAME]向对方伸出了罪恶的手。</Desc>
+		<Selections>
+			<li>
+				<Display>继续</Display>  
+				<Tip>需要合欢功法</Tip>
+				<OKResult><![CDATA[
+				if me:GetGongName() == "Gong_1701_Tu" then
+					if me:GetSex() > 1 then
+					me:AddMsg(XT("[NAME]虽是女子，却也不碍得自己对女子的喜欢，凡间所谓武学自然无法对身为修士的[NAME]造成阻扰，[NAME]轻而易举的制住了少女后，贝齿轻咬着对方的耳垂，双手也游走在少女下身，不时的触碰着少女的敏感地带，随着[NAME]指尖的入侵，少女面带飞霞轻声娇喘了起来……\n事毕，[NAME]正待离去，少女却扯着[NAME]的衣角好似上瘾般的不愿[NAME]离去，于是[NAME]将少女带在身边收为炉鼎。"));
+					me:AddModifier("Story_Caibuzhidao1");
+					me:AddModifier("Luding4");
+					me:AddMemery("在一次历练的途中，与诱惑了一位少女与自己百合，并将对方调教成炉鼎带在身边！");
+					else
+						if me.npcObj.PropertyMgr.BodyData:PartIsBroken("Genitals") then
+						me:AddMsg(XT("[NAME]也想要试图对少女做些什么，可奈何自己是个太监，心有余而力不足，只能将少女淫辱一番转身离去，被个太监一番折辱，使得少女心性大变，投身合欢一脉以图报复。"));me:AddSchoolRelation(11,-50);
+						else
+						me:AddMsg(XT("[NAME]蛮横的扯烂少女衣衫，将少女按到在地，胯下神器贯体而入，少女惊叫连连呼喊不止，奈何凡人武者之力反抗修士自是绝无可能，无力的反抗只能让[NAME]淫欲更盛，在一次又一次的脱力之后，少女的神志甚至都有些涣散了，却依旧不见[NAME]泄出阳元……\n数日调教之后，少女成为了[NAME]采补的炉鼎，被[NAME]带在了身边。"));
+						me:AddModifier("Story_Caibuzhidao1");
+						me:AddModifier("Luding4");
+						me:AddModifier("Pochu");
+						me:AddMemery("在一次历练的途中，奸污了一名美貌少女，并将对方调教成母狗当做炉鼎带在身边！");
+						end
+					end
+				else
+				me:AddMsg(XT("[NAME]将少女淫辱把玩了一段时间，玩腻后便将少女弃置与凡间的青楼楚馆之中。"));
+				end
+				]]></OKResult>
+			</li>
+		</Selections>
+	</Story>
+	
+	<Story Name="Storyshiqi_2">
+		<DisplayName>游历</DisplayName>
+		<Kind>Story</Kind>
+		<Desc>[NAME]于游历途中，遇到一采花淫贼意图奸淫侮辱某位官家少女。</Desc>
+		<Selections>
+			<li>
+				<Display>拔刀相助</Display>  
+				<OKResult><![CDATA[
+				me:AddMsg(XT("采花淫贼只是凡夫俗子，自然不是[NAME]的对手，三两招之后便死在了[NAME]的剑下，[NAME]的行侠仗义使得本派名声略显。"));me:AddSchoolScore(2,50);
+				]]></OKResult>
+			</li>
+			
+			<li>
+				<Display>同流合污</Display>  
+				<OKResult><![CDATA[
+				if me:GetGongName() == "Gong_1701_Tu" then
+					if me:GetSex() > 1 then
+					local Panding = me:RandomInt(1,10);
+					me:AddModifier("Luding")
+					local buff = me.npcObj.PropertyMgr:FindModifier("Luding");
+					buff:UpdateStack(Panding-1);
+					me:AddMsg(XT("[NAME]来到少女府邸，褪尽衫裙魅术挥洒，府中男子均化为[NAME]裙下之臣，[NAME]淫乐一番后便卷走了几个她相中的男子作为炉鼎回山采补。"));
+					me:AddPracticeResource("Stage",me:GetGLevel() * 1000);me:AddModifier("Pochu");
+					else
+						if me.npcObj.PropertyMgr.BodyData:PartIsBroken("Genitals") then
+						me:AddMsg(XT("[NAME]决定助那淫贼一臂之力，举手之间便将少女府上的家丁放翻，淫贼大喜之余将少女操弄了三四个时辰有余，作为一个凡人的淫贼有等持久度着实不太合理，但是[NAME]是个太监也不知道正常人能一次干多久，所以并未生疑，饱览了一番美景后便转身离去了。"));
+						else
+						me:AddMsg(XT("[NAME]如同谪仙一般从天而降，举手间便制住了淫贼，少女正待道谢却见[NAME]挥手击飞了一众府上家丁，将少女虏至卧房后一番折辱，经过数个时辰的奸淫调教，少女被驯为[NAME]胯下母犬，甘愿俯首跪于[NAME]脚下作一肉炉鼎玉蒲团。\n[NAME]将少女带回了门派，作为炉鼎饲养"));
+						me:AddPracticeResource("Stage",me:GetGLevel() * 1000);me:AddModifier("Luding4");
+						end
+					end
+				else
+					if me:GetSex() > 1 then
+					me:AddMsg(XT("[NAME]决定助那淫贼一臂之力，举手之间便将少女府上的家丁放翻，淫贼大喜之余将少女操弄了三四个时辰，少女几近崩溃其胯下巨物却坚挺依旧，作为一个凡人的淫贼此等持久度着实不太合理，故[NAME]亲自上前与之大战三百回合，战至酣时[NAME]惊异的发现此人居然身怀异术，随即[NAME]一把掐住对方喉咙逼问对方！\n原来对方少年时期有所奇遇，居然有幸习得过合欢宗无上秘法，而此法也在[NAME]逼问之下被[NAME]取得。"));
+					me:UnLockGong("Gong_1701_Tu");
+					me:AddModifier("Pochu");
+					else
+						if me.npcObj.PropertyMgr.BodyData:PartIsBroken("Genitals") then
+						me:AddMsg(XT("[NAME]决定助那淫贼一臂之力，举手之间便将少女府上的家丁放翻，淫贼大喜之余将少女操弄了三四个时辰有余，作为一个凡人的淫贼有等持久度着实不太合理，但是[NAME]是个太监也不知道正常人能一次干多久，所以并未生疑，饱览了一番美景后便转身离去了。"));
+						else
+						me:AddMsg(XT("[NAME]得见官家小姐绰约风姿心下邪念大起，暗自下手将少女府上家丁放翻后，与淫贼一前一后干了四五个时辰，怀中少女都被干到两眼翻白不省人事，下体也烂糊一片惨不忍睹，而[NAME]却未和淫贼分出胜负，这着实有些不合常理，[NAME]作为修士能做到锁阳元不泻也就算了，这个作为凡人的采花淫贼凭什么有此等本事，随即[NAME]一把掐住对方喉咙逼问对方！\n原来对方少年时期有所奇遇，居然有幸习得过合欢宗无上秘法，而此法也在[NAME]逼问之下被[NAME]取得。"));
+						me:UnLockGong("Gong_1701_Tu");
+						end
+					end
+				end
+				
+				]]></OKResult>
+			</li>
+			
+			<li>
+				<Display>离去</Display>  
+				<OKResult><![CDATA[
+				me:AddMsg(XT("[NAME]决定还是不管这场闲事，转身离开。"));
+				]]></OKResult>
+			</li>
+		</Selections>
+	</Story>
+	
+	<Story Name="Storyshiqi_3">
+		<DisplayName>游历</DisplayName>
+		<Kind>Story</Kind>
+		<Desc>[NAME]游历途中，见到一群因遭遇旱灾而逃难的灾民。</Desc>
+		<Selections>
+			<li>
+				<Display>帮助灾民</Display>  
+				<OKResult><![CDATA[
+				local Suiji = me:RandomInt(1,100);
+				local nR = world:RandomSchool(2,4);
+				local sR = world:GetSchoolName(nR);
+				local bR = world:RandomSchool(-4,-2);
+				local vR = world:GetSchoolName(bR);
+				if Suiji > 80 then
+					if me:GetSex() > 1 then
+					me:AddMsg(XT("[NAME]取出了自己的干粮施于了灾民，可[NAME]却并不知晓{0}弟子早已混入这批灾民之中，伺机想要害人性命修炼邪功，[NAME]的插手让{0}弟子心底滋生了一条邪念。\n只见{0}弟子乘着[NAME]不备暗自祭出法宝，一击命中后[NAME]昏死了过去，{0}弟子一脸邪笑的掏出了胯下之器便是在[NAME]身上杀了个七进七出好不痛快。\n事毕，{0}弟子将[NAME]弃置与荒野后便转身离开了。"), vR);
+					me:AddSchoolScore(1,-100);
+					me:AddModifier("Pochu");
+					else
+					me:AddMsg(XT("[NAME]取出了自己的干粮施于了灾民，可[NAME]却并不知晓{0}弟子早已混入这批灾民之中，伺机想要害人性命修炼邪功，[NAME]的插手让{0}弟子大为恼怒。\n只见{0}弟子乘着[NAME]不备暗自祭出法宝，一击命中后[NAME]昏死了过去后便转身离开了。"), vR);
+					me:AddSchoolScore(1,-100);
+					end
+				else
+					if Suiji > 45 then
+					me:AddMsg(XT("[NAME]决定帮助灾民。\n[NAME]取出了自己的干粮施于了灾民，此举被刚好经过的{0}弟子看到，{0}弟子与[NAME]一起携手援助灾民之时，结下了一段情谊，此举使得{0}对本门的感观上升，亦提升了本门在凡间的声望。"), sR);
+					me:AddSchoolRelation(nR,10);me:AddSchoolScore(2,50);
+					else
+					me:AddMsg(XT("[NAME]决定帮助灾民。\n[NAME]取出了自己的干粮施于了灾民\n灾民获得食物后连连感谢[NAME]慷慨仗义，本门在凡间的声望有所提高。"));
+					me:AddSchoolScore(2,50);
+					end
+				end
+				]]></OKResult>
+			</li>
+			
+			<li>
+				<Display>残害灾民</Display>  
+				<OKResult><![CDATA[
+				if me:GetGongName() == "Gong_1701_Tu" then
+					if me:GetSex() > 1 then
+					me:AddMsg(XT("[NAME]对一众男性灾民施展迷情之术，一众男性灾民均丧失了理智，近靠上前的或擒或抱于[NAME]身上的三大孔穴抽插个不停，没挤进第一次梯队的也尝试着努力向前推进，仿佛即使挤上前去舔上一口[NAME]的肌肤也是极美的事情，而那些连第二梯队都排不上号的灾民，则将目光瞄准了周遭同为灾民的女子们，虽然她们没有[NAME]那冰肌玉骨，亦不如[NAME]那样有着惊世之貌，可至少还是个女人不是……\n一阵狂欢之后，只留下了一地被抽成人干的男子，以及一群瘫软在地衣衫尽碎身上伤的妇孺。"));
+					me:AddSchoolScore(3,100);me:AddPracticeResource("Stage",5000);me:AddModifier("Story_Caibuzhidao1");me:AddModifier("Pochu");
+					else
+						if me.npcObj.PropertyMgr.BodyData:PartIsBroken("Genitals") then
+						me:AddMsg(XT("[NAME]施展迷情之术，一众灾民均丧失了理智欲火焚身，直接原地乱交了起来。\n然而[NAME]虽然学了采补功法，但自己却是个太监，没有这个功能无法加入战局，无奈之下只好转换术法将对方抽魂炼珀以壮自身修为，\n因灾民均中了迷情之法，所以没人知道这事情是[NAME]干的。"));
+						me:AddPracticeResource("Stage",2500);
+						else
+						me:AddMsg(XT("[NAME]看了一眼一众灾民，深感眼前一堆臭鱼烂虾，毕竟日晒雨淋的劳苦大众，怎么可能生的出绝色佳人呢，这着实是闭着眼睛都下不去吊，[NAME]随手便打出几个法印将一众灾民摧魂练珀，用以提升自己修为。\n因灾民均中了迷情之法，所以没人知道这事情是[NAME]干的。"));
+						me:AddPracticeResource("Stage",2500);
+						end
+					end
+				else
+				me:AddMsg(XT("[NAME]心道一声“天地不仁以万物为刍狗。”思前想后觉得如此灾荒年景想来这些灾民也是无法好好生活的，与其苟延残喘痛苦的活着，不如把他们抽魂炼珀助自己修为更近一步来着呢。\n说干就干[NAME]连忙操起秘法将一众灾民囚魂锁珀祭炼成凶魂历煞以助自身修炼。\n此事虽办得隐秘，可还是有若干幸存者逃出生天，本派的恶名更加远播了。"));
+				me:AddSchoolScore(3,100);me:AddPracticeResource("Stage",2500);
+				end
+				]]></OKResult>
+			</li>
+			
+			<li>
+				<Display>离去</Display>  
+				<OKResult><![CDATA[
+				me:AddMsg(XT("[NAME]决定还是不管这场闲事，转身离开。"));
+				]]></OKResult>
+			</li>
+		</Selections>
+	</Story>
+	
+	<Story Name="Storyshiqi_4">
+		<DisplayName>游历</DisplayName>
+		<Kind>Story</Kind>
+		<Desc>[NAME]游历途中，遇到被一名着金袍带金冠的道人拦住了去路，只见道人把玩着手中那由星髓所炼制的赌具，对[NAME]言道：“小兄弟我看你一身王八之，呸，天命之气，怎么看怎么像世界主角来着，怎么样咱们赌一把小玩玩？”。\n闻其言观其行，[NAME]怎会想不到眼前的这个家伙，便是这修真界赫赫有名的神人鬼中三奇中的赌鬼叶玄！</Desc>
+		<Selections>
+			<li>
+				<Display>赌上一把</Display>  
+				<OKResult><![CDATA[
+				me:AddMsg(XT("有一说一，对方不亏是修真界三奇之一，这看人的眼光是真的特么准，[NAME]一直觉得自己是个修炼奇才，只是没有出生在仙魔大战那个好时代，不然自己也能像传说中的那个人一样，建立一个西皇南皇北皇门什么的，奈何生在这仙魔大战之后，天地元气早已百不存一的时代，修真者们大多只能靠着大量的天才地宝才能勉强得道……\n自觉自己有主角命的[NAME]与赌鬼叶玄赌了起来……知道天慢慢暗了下来，叶玄丢下一句“呀，天黑了，我妈妈叫我回家吃饭了，不赌了不赌了！”之时，[NAME]才堪堪发现，自己那乌黑的长发已经变得斑白……"));
+				me:ModifierProperty("MaxAge",-9999);
+				]]></OKResult>
+			</li>
+			
+			<li>
+				<Display>离去</Display>  
+				<OKResult><![CDATA[
+				me:AddMsg(XT("[NAME]决定转身离开。"));
+				me:TriggerStory("Yexuanduju_1");
+				]]></OKResult>
+			</li>
+		</Selections>
+	</Story>
+	
+	<Story Name="Storyshiqi_5">
+		<DisplayName>游历</DisplayName>
+		<Kind>Story</Kind>
+		<Desc>[NAME]游历途中遇到一个年轻少女正在卖身葬父。</Desc>
+		<Selections>
+			<li>
+				<Display>资助</Display>  
+				<OKResult><![CDATA[
+				if me:GetModifierStack("Qian") >= 10 then
+				local buff = me.npcObj.PropertyMgr:FindModifier("Qian");
+				buff:UpdateStack(-10);
+					if me:GetCharisma() > 8 then
+					me:AddMsg(XT("[NAME]掏了十两银子，帮助少女埋葬了父亲。\n少女：“谢谢贵人！今天开始奴家便是贵人的奴婢了！”\n[NAME]也这么按着标准剧本客气了一句：“助人为快乐之本，你不用卖身的，你还是自由身。”的腆着脸等对方感动到无以复加后归心。\n果然，这个还是那个民风淳朴的修真界，少女一脸花痴状的对着[NAME]闪星星眼，嘴里下一句脱口而出的便是：“若是大人嫌弃奴婢，奴婢只好去死了，为人最重要的便是信了！”\n无奈之下[NAME]只好将少女收在身边。"));
+					me:AddModifier("Luding4");
+					else
+					me:AddMsg(XT("[NAME]掏了十两银子，帮助少女埋葬了父亲。\n少女：“谢谢贵人！今天开始奴家便是贵人的奴婢了！”\n[NAME]也这么按着标准剧本客气了一句：“助人为快乐之本，你不用卖身的，你还是自由身。”的腆着脸等对方感动到无以复加后归心。\n却未曾想少女下一句：“好的大人，是的大人，谢谢大人”后直接走人只留下[NAME]独自一人黑人问号了。"));
+					end
+				else
+				me:AddMsg(XT("[NAME]摸了摸口袋，发现自己并没有多少凡间的银钱，只能无奈的转身离开了。"));
+				end
+				]]></OKResult>
+			</li>
+			
+			<li>
+				<Display>欺辱</Display>  
+				<OKResult><![CDATA[
+				if me:GetSex() == 1 then
+					if me.npcObj.PropertyMgr.BodyData:PartIsBroken("Genitals") then
+					me:AddMsg(XT("[NAME]见少女姿色尚可便将少女敲晕后绑走了。"));
+					me:AddModifier("Luding4");
+					else
+						if me:GetGongName() == "Gong_1701_Tu" then
+						me:AddMsg(XT("[NAME]见少女姿色颇为诱人，击倒了少女将其拖至无人处，驾起少女双腿便是一顿冲刺，待少女泄身脱力之时，运起六欲心经中的采补之术将少女阴元采补一空。\n事毕，[NAME]便将少女打包带走了。"));
+						me:AddModifier("Story_Caibuzhidao1");me:AddModifier("Luding4");
+						else
+						me:AddMsg(XT("[NAME]见少女姿色颇为诱人，击倒了少女将其拖至无人处，驾起少女双腿便是一顿冲刺。\n事毕，[NAME]便将少女打包带走了。"));
+						me:AddModifier("Luding4");
+						end
+					end
+				else
+				me:AddMsg(XT("[NAME]见少女姿色颇为诱人，击倒了少女将其拖至无人处，拿出了自己的双头龙与之酣战了起来。\n事毕，[NAME]便将少女打包带走了。"));
+				me:AddModifier("Luding4");me:AddModifier("Pochu");
+				end
+				]]></OKResult>
+			</li>
+			
+			<li>
+				<Display>离去</Display>  
+				<OKResult><![CDATA[
+				me:AddMsg(XT("[NAME]决定转身离开。"));
+				]]></OKResult>
+			</li>
+		</Selections>
+	</Story>
+	
+	<Story Name="Yexuanduju_1">
+		<DisplayName>赌鬼叶玄</DisplayName>
+		<Desc>有一说一，但凡不是个脑瘫，都知道跟叶玄赌博那是十赌十输的，真的就是十赌十输，也不是说对方作弊，而是和对方赌博本身就是一个陷阱，输了自己赔上性命，赢了拿点天财地宝回家说不定还给那些精英弟子白嫖了，就算是个脑袋长在膝盖上的猴子，想来也是不会上当！[NAME]自然不是脑瘫，准备转身离去。\n只听身后传来“小道友留步，小道友不愿意跟我赌那天才地宝功法秘籍就可见小道友的确是个有大智慧的人，但老赌鬼这瘾犯了……不如……老赌鬼拿资质修为当赌资跟你赌！”</Desc>
+		<Selections>
+			<li>
+				<Display>这个听起来还不错</Display>  
+				<OKResult><![CDATA[
+				me:AddMsg(XT("听到赌资质修为什么的[NAME]好像来了点兴趣，毕竟资质修可都是实打实自己的，不存在输了赔名赢了带天才地宝回去给精英弟子白嫖的情况，于是[NAME]决定和叶玄来上那么一局。"));
+				me:TriggerStory("Yexuanduju_2");
+				]]></OKResult>
+			</li>
+			
+			<li>
+				<Display>赌尼玛呢！离去</Display>  
+				<OKResult><![CDATA[
+				me:AddMsg(XT("[NAME]留下一句“赌尼玛呢，老子才不要被你骗！”便还是坚定的离开了，毕竟这点可以放心，赌鬼叶玄虽然嗜赌如命，但是绝对不会因为你拒绝和他赌博或者出言不逊就对人下毒手……"));
+				]]></OKResult>
+			</li>
+		</Selections>
+	</Story>
+	
+	<Story Name="Yexuanduju_2">
+		<DisplayName>赌鬼叶玄</DisplayName>
+		<Desc>叶玄闻言大喜，挥手之间凭空出现百张玉牌，上面刻着各式各样的奖励，[NAME]甚至一眼瞟到还有什么元神分身的大神通，还未待[NAME]细细看完所有奖励，叶玄大手一挥这百枚玉牌便翻转了过去只闻叶玄言道：“十年阳寿翻一枚，枚枚有奖了！”</Desc>
+		<Selections>
+			<li>
+				<Display>继续</Display>  
+				<OKResult><![CDATA[
+				Panding = me:RandomInt(1,999);
+				if me:GetProperty("MaxAge") < 0 then
+					me:AddMsg(XT("叶玄留下一句“你已经输光了阳寿，回家办丧去吧”便转身离开了。"));
+				else
+					if Panding == 217 then
+					me:AddMsg(XT("[NAME]翻开一枚玉牌，只见一道金光闪过，玉牌上赫然刻着大神通-元神分身的字样，随后之闻叶玄一句“小道友这般好运，着实让本尊佩服，这道元神分身归你了！”后，便消失不见了。"));
+					me:ModifierProperty("MaxAge",-10);
+					me:AddModifier("PModifier_Item_Dan_FabaoNumAdd");
+					else
+						if Panding > 985 then
+						me:AddMsg(XT("[NAME]翻开一枚玉牌，只见玉牌上刻一桩秘闻，叶玄将具体情况告知[NAME]后，便转身消失不见了。"));
+						me:ModifierProperty("MaxAge",-10);
+						me:AddSecret(1701)
+						else
+						me:AddModifier("Qian");
+						local buff = me.npcObj.PropertyMgr:FindModifier("Qian");
+						buff:UpdateStack(Panding-1);
+						me:AddMsg(string.format(XT("[NAME]翻开一枚玉牌，只见玉牌上刻着银子%s两，虽然凡间钱财对修士意义不大，但是至少聊胜于无吧……"), tostring(Panding)));
+						me:ModifierProperty("MaxAge",-10);
+						me:TriggerStory("Yexuanduju_3");
+						end
+					end
+				end
+				]]></OKResult>
+			</li>
+		</Selections>
+	</Story>
+	
+	<Story Name="Yexuanduju_3">
+		<DisplayName>赌鬼叶玄</DisplayName>
+		<Desc>叶玄将[NAME]牌子上写着的物品递给了[NAME]后大袖一挥，那玉牌便从新翻转了过去……\n叶玄道：“小道友可要继续？”</Desc>
+		<Selections>
+			<li>
+				<Display>这是自然</Display>  
+				<OKResult><![CDATA[
+				Panding = me:RandomInt(1,999);
+				if me:GetProperty("MaxAge") < 0 then
+					me:AddMsg(XT("叶玄留下一句“你已经输光了阳寿，回家办丧去吧”便转身离开了。"));
+				else
+					if Panding == 217 then
+					me:AddMsg(XT("[NAME]翻开一枚玉牌，只见一道金光闪过，玉牌上赫然刻着大神通-元神分身的字样，随后之闻叶玄一句“小道友这般好运，着实让本尊佩服，这道元神分身归你了！”后，便消失不见了。"));
+					me:ModifierProperty("MaxAge",-10);
+					me:AddModifier("PModifier_Item_Dan_FabaoNumAdd");
+					else
+						if Panding > 985 then
+						me:AddMsg(XT("[NAME]翻开一枚玉牌，只见玉牌上刻一桩秘闻，叶玄将具体情况告知[NAME]后，便转身消失不见了。"));
+						me:ModifierProperty("MaxAge",-10);
+						me:AddSecret(1701)
+						else
+						local buff = me.npcObj.PropertyMgr:FindModifier("Qian");
+						buff:UpdateStack(Panding);
+						me:AddMsg(string.format(XT("[NAME]翻开一枚玉牌，只见玉牌上刻着银子%s两，虽然凡间钱财对修士意义不大，但是至少聊胜于无吧……"), tostring(Panding)));
+						me:ModifierProperty("MaxAge",-10);
+						me:TriggerStory("Yexuanduju_3");
+						end
+					end
+				end
+				]]></OKResult>
+			</li>
+			
+			<li>
+				<Display>赌尼玛呢！离去</Display>  
+				<OKResult><![CDATA[
+				me:AddMsg(XT("[NAME]留下一句“赌尼玛呢，老子才不要被你骗！”便还是坚定的离开了，毕竟这点可以放心，赌鬼叶玄虽然嗜赌如命，但是绝对不会因为你拒绝和他赌博或者出言不逊就对人下毒手……"));
+				]]></OKResult>
+			</li>
+		</Selections>
+	</Story>
+	
+	<Story Name="Storyshiqi_6">
+		<DisplayName>游历</DisplayName>
+		<Kind>Story</Kind>
+		<Desc>[NAME]游历途中经过一个村庄。</Desc>
+		<Selections>
+			<li>
+				<Display>进入</Display>  
+				<OKResult>
+				RWPanding = me:RandomInt(1,100);
+				NPCPanding = me:RandomInt(1,100);
+				me:TriggerStory("Storyshiqi_Cunzhuang");
+				</OKResult>
+			</li>
+			
+			<li>
+				<Display>离去</Display>  
+				<OKResult>
+				me:AddMsg("[NAME]心想着自己还有别的事情要做，便继续赶路了。");
+				</OKResult>
+			</li>
+		</Selections>
+	</Story>
+	
+	<Story Name="Storyshiqi_Cunzhuang">
+		<DisplayName>村庄</DisplayName>
+		<Kind>None</Kind>
+		<Desc>这是一个宁静而又祥和的村庄，村庄的西面有一条小河流过，暮色中小村庄升起了缕缕炊烟。</Desc>
+		<Selections>
+			<li>
+				<Display>掳掠</Display>  
+				<OKResult>
+				Ra1 = me:RandomInt(50,100);
+				Ra2 = me:RandomInt(5,20);
+				Ra3 = me:RandomInt(5,20);
+				me:AddModifier("Qian");
+				me:AddModifier("Luding");
+				me:AddModifier("Luding2");
+				local buff1 = me.npcObj.PropertyMgr:FindModifier("Qian");
+				local buff2 = me.npcObj.PropertyMgr:FindModifier("Luding");
+				local buff3 = me.npcObj.PropertyMgr:FindModifier("Luding2");
+				buff1:UpdateStack(Ra1 - 1);
+				buff2:UpdateStack(Ra2 - 1);
+				buff3:UpdateStack(Ra3 - 1);
+				if NPCPanding > 90 then
+				me:AddMsg("[NAME]看着这个富饶安祥的村庄，心中贪念大起，决定将其掳掠一空。\n[NAME]唤出法宝正肆虐小村之际，只闻身后一句：“邪门歪道，看剑！”，[NAME]举手间便拍飞了来袭的飞剑，定睛一看来者是个昆仑内门打扮的女子。\n[NAME]轻而易举的制住了对方并将村庄掳掠一空。");
+				me:TriggerStory("NPC_QLlianqinvF");
+				else
+				me:AddMsg("[NAME]看着这个富饶安祥的村庄，心中贪念大起，[NAME]轻而易举的将村庄掳掠一空，由于此事做的干净漂亮，所以此番灭村掳掠之举并无人所知。");
+				end
+				</OKResult>
+			</li>
+			
+			<li>
+				<Display>青莲剑宗女弟子</Display> 
+				<DisplayCondition>
+				GameMain:GetMod("Lua_hudong"):Suiji1PD()
+				</DisplayCondition>
+				<OKResult>
+				me:TriggerStory("NPC_QLlianqinvT");
+				</OKResult>
+			</li>
+			
+			<li>
+				<Display>合欢男修</Display> 
+				<DisplayCondition>
+				GameMain:GetMod("Lua_hudong"):Suiji2PD()
+				</DisplayCondition>
+				<OKResult>
+				me:TriggerStory("NPC_HHJindannanT");
+				</OKResult>
+			</li>
+			
+			<li>
+				<Display>离去</Display>  
+				<OKResult>
+				me:AddMsg("[NAME]离开了村庄继续赶路了。");
+				</OKResult>
+			</li>
+		</Selections>
+	</Story>
+</List></Stories>

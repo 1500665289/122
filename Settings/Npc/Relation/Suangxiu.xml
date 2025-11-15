@@ -1,0 +1,61 @@
+<RelationDefs><List>
+	<Relation Name="Luding1">  <!--男主女从-->
+		<AutoGentrate>1</AutoGentrate>
+		<DisplayNameF>女奴</DisplayNameF>
+		<DisplayNameM>主人</DisplayNameM>
+		<Links>
+			<li From="SELF"		To="Luding1"/>
+		</Links>
+		<InCache>0.1</InCache>
+		<FitRelation>
+			<li>None</li>
+		</FitRelation>
+			
+		<BanRelation>	
+			<li>Lover</li>
+			<li>Luding2</li>
+		</BanRelation>
+		
+		<Favour>Luding</Favour>
+		<OppositeSex>1</OppositeSex>
+		<AgeMin>12</AgeMin>
+	</Relation>
+	
+	<Relation Name="Luding2"> <!--女主男从-->
+		<AutoGentrate>1</AutoGentrate>
+		<DisplayNameF>女主人</DisplayNameF>
+		<DisplayNameM>公狗</DisplayNameM>
+		<Links>
+			<li From="SELF"		To="Luding2"/>
+		</Links>
+		<InCache>0.1</InCache>
+		<FitRelation>
+			<li>None</li>
+		</FitRelation>
+			
+		<BanRelation>
+			<li>Lover</li>
+			<li>Luding1</li>
+		</BanRelation>
+		
+		<Favour>Luding</Favour>
+		<OppositeSex>1</OppositeSex>
+		<AgeMin>12</AgeMin>
+	</Relation>
+	
+	<Relation Name="Chunv"> <!--女性的第一滴血-->
+		<AutoGentrate>1</AutoGentrate>
+		<DisplayNameF>被我取一血</DisplayNameF>
+		<DisplayNameM>第一个男人</DisplayNameM>
+		<Links>
+			<li From="SELF"		To="Chunv"/>
+		</Links>
+		<InCache>0.1</InCache>
+		<FitRelation>
+			<li>None</li>
+		</FitRelation>
+		<Favour>Chunv</Favour>
+		<OppositeSex>1</OppositeSex>
+		<AgeMin>12</AgeMin>
+	</Relation>
+</List></RelationDefs>

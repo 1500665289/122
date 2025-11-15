@@ -1,0 +1,128 @@
+<Stories><List>	
+	<Story Name="GodStoryshiqi_1">
+		<DisplayName>传道</DisplayName>
+		<Kind>GodStory</Kind>
+		<Desc>[NAME]在游历之时遇一名合欢女修正在诱惑凡人，企图用采补凡人的元阳之气修炼六欲魔典。</Desc>
+		<Selections>
+			<li>
+				<Display>上前阻止</Display>  
+				<OKResult><![CDATA[
+				if me:GetGLevel() > 6 then
+				me:AddMsg(XT("[NAME]击退了合欢宗女修，但是那些差点成为炉鼎的死老百姓根本没有觉得[NAME]的是善举，甚至还对[NAME]破口大骂，但此举顺应天道，[NAME]获得了一些功德。"));me:ModifierProperty("GodPenaltyAddV",-me:RandomInt(3,8));story:FinishSecret();
+				else
+					if me:GetSex () > 1 then
+					me:AddMsg(XT("[NAME]修为不继，被合欢女修封住周身大穴，扒光衣服扔在路边任人玩弄，[NAME]被一众凡人轮奸了上百次，浑身上下没有一处不沾染那令人恶心的白浊粘液，若非[NAME]是个修炼者，怕是这次就要交代于此了，多管闲事的确是要付出代价的。"));me:AddModifier("Pochu");me:AddMemery("在一次历练的途中被凡人轮奸了！");me:AddTitle(XT("被凡人轮奸过的女修士"),string.format(XT("在%s年，于一次历练途中，因某些原因失去战力，惨遭凡人轮奸"),1));story:FinishSecret();
+					else
+						if me.npcObj.PropertyMgr.BodyData:PartIsBroken("Genitals") then
+						me:AddMsg(XT("[NAME]修为不继，被合欢女修封住周身大穴，合欢女修正待享受一番神道修士的元阳精华，却发现身为神修的[NAME]竟然是个太监，合欢女修勃然大怒，鼓动那些愚民们将[NAME]鸡奸了。"));me:AddMemery("在一次历练的途中被凡人鸡奸了！");me:AddTitle(XT("菊花残"),string.format(XT("在%s年，于一次历练途中，因某些原因失去战力，惨遭凡人鸡奸！"),1));story:FinishSecret();
+						else
+						me:AddMsg(XT("[NAME]修为不继，中了合欢女修的七情咒。\n只见合欢女修褪下衣衫向[NAME]勾了勾手指，[NAME]便如同发情的公狗一般穿着粗气想要上前做上一番活塞运动，奈何身中魔咒未得对方应允周身皆无法行动，只见妖女伸出手指掰开蜜穴花瓣后吩咐的一句“来舔”，[NAME]终感周身禁制被解，方能匍匐向前伸出舌头开始舔着那早已开始淌水的蜜穴……十个时辰之后，妖女将完全榨干的[NAME]随手丢弃在路边，独自离开了。"));me:AddModifier("Story_Caibuzhidao2");me:AddMemery("在一次历练的途中被合欢女修采补了！");me:AddTitle(XT("废弃炉鼎"),string.format(XT("在%s年，于一次历练途中，被合欢女修吸了个一干二净后弃置！"),1));story:FinishSecret();
+						end
+					end
+				end
+				]]></OKResult>
+			</li>
+			
+			<li>
+				<Display>离开</Display>  
+				<OKResult><![CDATA[
+				me:AddMsg(XT("[NAME]决定还是不管这场闲事，转身离开。"));
+				]]></OKResult>
+			</li>
+		</Selections>
+	</Story>
+	
+	<Story Name="GodStoryshiqi_2">
+		<DisplayName>传道</DisplayName>
+		<Kind>GodStory</Kind>
+		<Desc>[NAME]在游历之时途经一人族村落，此处正经受一群邪恶妖兽的肆虐，妖兽的头领则是身长四米有余的猪妖。</Desc>
+		<Selections>
+			<li>
+				<Display>解救百姓</Display>  
+				<OKResult><![CDATA[
+				if me:GetGLevel() > 9 then
+				local nN = me:RandomInt(math.floor(me:GetGLevel()^4 * 1),math.floor(me:GetGLevel()^4* 1.5))
+				me:AddMsg(XT("[NAME]以大道行大神通轻而易举的退治了金丹大妖，此事被当地民众广为流传，甚至为[NAME]开庙立碑使得[NAME]的信众多了不少。"));me:AddFaith(me:RandomInt(100,200)*nN);me:AddGodPopulation(nN);me:ModifierProperty("GodPenaltyAddV",-me:RandomInt(3,8));story:FinishSecret();
+				else
+				me:AddMsg(XT("[NAME]意预为百姓安危灭除此群妖兽，但奈何实力不济，无法和群妖以力敌之，便之身前往猪妖所盘踞之处，试图以智取知。"));me:TriggerStory("Zhuyao_1");
+				end
+				]]></OKResult>
+			</li>
+			
+			<li>
+				<Display>离开</Display>  
+				<OKResult><![CDATA[
+				me:AddMsg(XT("[NAME]决定还是不管这场闲事，转身离开。"));
+				]]></OKResult>
+			</li>
+		</Selections>
+	</Story>
+	
+	<Story Name="Zhuyao_1">
+		<DisplayName>猪妖肆虐</DisplayName>
+		<Desc>独身一人来到妖兽巢穴的[NAME]，腥臭无比的气味向迎面扑来，只见那猪妖跨于一只巨熊的身后奋力抽插数十下，浑身一阵颤触之后猪妖精元猛灌入巨熊下身，其量之大即使是巨熊的身体都无法承载，还有大量余液从巨熊下身流淌而出。\n猪妖淫欲得以满足之后，摄起一名身边由村民上供而来估摸着七八岁大小的女童，括弧此处申明一下炼铜biss而且不科学，毕竟体长四米有余的猪妖在括弧并加三百个感叹号。\n言归正传猪妖摄起女童后，一把将女童塞入口中，只轻嚼了几口便见血浆四下飞溅，见此情此景[NAME]决定？</Desc>
+		<Selections>
+			<li>
+				<Display>顿悟</Display>  
+				<OKResult><![CDATA[
+				if me:GetSex () > 1 then
+				me:AddMsg(XT("[NAME]顿感无力降服如此强大的妖兽，可正若是转身离去此地不知还要被猪妖肆虐多久，正在天人交战之间的[NAME]想起了万年前神修大宗佛门，传闻他们有着一个割肉饲鹰的典故，在心怀大慈悲的冥想间，[NAME]仿佛；领悟了些什么，只闻其口吐真言“法天象地”四字，身形便迎风而长，瞬间化成为三米有余的巨人，领新神通的[NAME]信心大增，意欲降妖伏魔。"));me:TriggerStory("Zhuyao_2");
+				else
+				me:AddMsg(XT("[NAME]顿感无力降服如此强大的妖兽，可正若是转身离去此地不知还要被猪妖肆虐多久，一阵天人交战之后，仔细想想还是留的有用之身报偿天地吧，于是转身离开了。"));
+				end
+				]]></OKResult>
+			</li>
+			
+			<li>
+				<Display>逃跑</Display>  
+				<OKResult><![CDATA[
+				me:AddMsg(XT("[NAME]见到猪妖如此恐怖，便隐匿去的行踪溜溜球了。"));
+				]]></OKResult>
+			</li>
+		</Selections>
+	</Story>
+	
+	<Story Name="Zhuyao_2">
+		<DisplayName>猪妖肆虐</DisplayName>
+		<Desc>获得新神通的[NAME]意欲降妖除魔，直接冲向那正在咀嚼女童的猪妖，之见几个回合之间，便因猪妖强横的实力败下阵来，瘫软在地。\n猪妖见眼入侵之人为自己所击败，且刚好体型与自己也大致相同，顿时淫念生，身下那宝贝分泌着大量透明粘液如同电钻般的螺旋而出（猪的生殖器的确是螺旋且会旋转的熬），[NAME]只感身下炙热的异物入体，自己的蜜穴被异物撑的无比饱满，正待适应却不想这异物顺时针的旋转了起来，那一层层接连不断的螺旋刮弄着蜜穴的肉壁，这粗暴的侵略之物让[NAME]整个人都快疯了，一波一波持续不断的冲击让渐渐沉沦其中。</Desc>
+		<Selections>
+			<li>
+				<Display>继续</Display>  
+				<OKResult><![CDATA[
+				local nN = me:RandomInt(math.floor(me:GetGLevel()^4 * 1),math.floor(me:GetGLevel()^4* 1.5))
+				me:AddMsg(XT("接连不断的高潮本早应当让[NAME]失去神志化为这欲海沉船，可神道传承中的那缕信仰之光一直守护着[NAME]神志的最后一道防线，直到猪妖体力不支瘫到在地，[NAME]还是获得了最终的成功为一方百姓驱退了妖群。"));me:AddFaith(me:RandomInt(100,200)*nN);me:AddGodPopulation(nN);me:ModifierProperty("GodPenaltyAddV",-me:RandomInt(3,8));me:AddModifier("Pochu");me:AddMemery("在一次历练途中，为了保护百姓舍身于猪妖贴身肉搏三百回合，睡服了猪妖！");me:AddTitle(XT("被猪妖日过的女修士"),string.format(XT("在%s年，于一次历练途中，为了保护百姓舍身于猪妖贴身肉搏三百回合，睡服了猪妖"),1));story:FinishSecret();
+				]]></OKResult>
+			</li>
+		</Selections>
+	</Story>
+	
+	<Story Name="GodStoryshiqi_3">
+		<DisplayName>传道</DisplayName>
+		<Kind>GodStory</Kind>
+		<Desc>[NAME]在游历之时得闻一事：\n两子争产，幼子蒙骗于父得其产，后携产与妓子同行放浪形骸，长子未得产，却就恭顺孝亲十余载，并倚仁孝之名被举孝廉入仕。\n幼子于散尽祖产之时得知其兄已为一地牧守，上门欲求一吏职，未果。\n遂含愤而出并扬言“三十年河东，三十年河西……”，然至今任是河东之时，潦倒于破庙之中乞食度日。</Desc>
+		<Selections>
+			<li>
+				<Display>助幼子夺产</Display>  
+				<OKResult><![CDATA[
+				me:AddModifier("Qian");
+				local buff = me.npcObj.PropertyMgr:FindModifier("Qian");
+				if me:GetSex () > 1 then
+				local nN = me:RandomInt(math.floor(me:GetGLevel()^4 * 0.5),math.floor(me:GetGLevel()^4* 1))
+				me:AddMsg(XT("[NAME]听到这幼子曾经扬言“三十年河东，三十年河西，莫欺少年穷！”之时，不经拍腿叫绝，这可是天命之子的专属台词啊，身为神修若能窃得一丝天命气运，修为必能精进不少，！\n故[NAME]化为凡女倒贴上门助其夺得长兄家业，并以美色诱之与[NAME]日夜欢好，终将炼其之天命之气化为自身修为，并得了遗产百两纹银。"));me:AddModifier("Pochu");me:AddPracticeResource("Stage",10000);
+				else
+				me:AddMsg(XT("[NAME]听到这幼子曾经扬言“三十年河东，三十年河西，莫欺少年穷！”之时，不经拍腿叫绝，这可是天命之子的专属台词啊，若取而代之，岂不是能得其大因果纳百万信众！\n遂[NAME]于荒庙夺其皮囊承其因果，以其之身杀上长兄家中，大喊“那日长兄对我爱答不理，今日愚弟便是来告诉兄长什么是莫欺少年穷的！”，言毕便将其身之兄长毙与掌下，并占之妻女家业，诸般淫辱甚至于牧下之民共享之，此举为我教获得了不少信徒，[NAME]也获得了纹银百两。"));
+				me:AddFaith(me:RandomInt(50,200)*nN);me:AddGodPopulation(nN);me:ModifierProperty("GodPenaltyAddV",-me:RandomInt(3,8));
+				end
+				buff:UpdateStack(99);
+				]]></OKResult>
+			</li>
+			
+			<li>
+				<Display>离开</Display>  
+				<OKResult><![CDATA[
+				me:AddMsg(XT("[NAME]决定还是不管这场闲事，转身离开。"));
+				]]></OKResult>
+			</li>
+		</Selections>
+	</Story>
+</List></Stories>

@@ -1,0 +1,211 @@
+﻿<Stories><List>	
+	<Story Name="NPC_QLlianqinvF"  Parent="BaseFillingStory">
+		<DisplayName>青莲剑宗女弟子</DisplayName>
+		<Desc>青莲剑宗女弟子被[NAME]所击败，凄惨的跪在地上。</Desc>
+		<Kind>None</Kind>
+		<Selections>
+			<li>
+				<Display>采补</Display>
+				<DisplayCondition>
+				GameMain:GetMod("Lua_hudong"):HehuanNanYouDiaoPD()
+				</DisplayCondition>
+				<OKResult>
+				me:AddMsg("[NAME]相貌还算不错的青莲女弟子，不禁淫心大动，几下将对方扒成一只小白羊后掏出自己的肉棒往对方小穴中抽插了起来。\n百余下活塞之后，青莲女弟子元阴大泄，[NAME]趁机运起功法将对方采补殆尽，化成了一具干尸。");
+				me:AddModifier("Story_Caibuzhidao1");
+				</OKResult>
+			</li>
+			
+			<li>
+				<Display>掳走</Display>
+				<OKResult>
+				me:AddMsg("[NAME]将这个青莲剑宗女弟子掳走了……");
+				me:AddModifier("Luding6");
+				</OKResult>
+			</li>
+			
+			<li>
+				<Display>放走</Display>
+				<OKResult>
+				me:AddMsg("[NAME]击败了这名女弟子后将对方放走了，具体是什么原因那就说不清了，可能是[NAME]脑瘫，或者是吃饱了撑的想给门派惹祸吧，总之青莲女弟子逃出生天后便将[NAME]之举禀告了宗门……");
+				me:AddSchoolScore(3,200);
+				me:AddSchoolRelation(6,-200);
+				</OKResult>
+			</li>
+		</Selections>
+	</Story>
+	
+	<Story Name="NPC_QLlianqinvT"  Parent="BaseFillingStory">
+		<DisplayName>青莲剑宗女弟子</DisplayName>
+		<Desc>[NAME]来到了青莲女弟子面前。</Desc>
+		<Kind>None</Kind>
+		<Selections>
+			<li>
+				<Display>互交</Display>
+				<OKResult>
+				me:AddMsg("对方不想搭理[NAME]，[NAME]走开了……");
+				me:TriggerStory("Storyshiqi_Cunzhuang");
+				</OKResult>
+			</li>
+			
+			<li>
+				<Display>袭击</Display>
+				<OKResult>
+				me:AddMsg("[NAME]祭起了法宝偷袭了青莲女弟子，轻而易举的制服了对方……");
+				me:TriggerStory("NPC_QLlianqinvF");
+				</OKResult>
+			</li>
+			
+			<li>
+				<Display>离开</Display>
+				<OKResult>
+				me:AddMsg("[NAME]转身离开了……");
+				me:TriggerStory("Storyshiqi_Cunzhuang");
+				</OKResult>
+			</li>
+		</Selections>
+	</Story>
+	
+	<Story Name="NPC_HHJindannanT"  Parent="BaseFillingStory">
+		<DisplayName>合欢男修</DisplayName>
+		<Desc>[NAME]来到了合欢男修面前。</Desc>
+		<Kind>None</Kind>
+		<Selections>
+			<li>
+				<Display>互交</Display>
+				<OKResult>
+				me:TriggerStory("NPC_HHJindannanY");
+				</OKResult>
+			</li>
+			
+			<li>
+				<Display>袭击</Display>
+				<OKResult>
+				me:AddMsg("[NAME]祭起了法宝偷袭了合欢男修，虽然击中了对方，可作为邪门歪道的合欢门人，最擅长的便是逃生之术，对方对我宗的恨意逃跑了……");
+				me:AddSchoolRelation(11,-150);
+				</OKResult>
+			</li>
+			
+			<li>
+				<Display>离开</Display>
+				<OKResult>
+				me:AddMsg("[NAME]转身离开了……");
+				me:TriggerStory("Storyshiqi_Cunzhuang");
+				</OKResult>
+			</li>
+		</Selections>
+	</Story>
+	
+	<Story Name="NPC_HHJindannanY"  Parent="BaseFillingStory">
+		<DisplayName>合欢男修</DisplayName>
+		<Desc>[NAME]走上前去向对方搭话，对方露出了邪邪的笑容。\n合欢男修面带诡笑道：“这位道有可愿与我做一笔生意……”对方列举了诸多需求。</Desc>
+		<Kind>None</Kind>
+		<Selections>
+			<li>
+				<Display>对方想要十名普通女性</Display>
+				<DisplayCondition>
+				GameMain:GetMod("Lua_hudong"):Renwu1PD()
+				</DisplayCondition>
+				<OKResult>
+				if me:GetModifierStack("Luding2") > 9 then
+				me:AddModifier("Qian");
+				local buff = me.npcObj.PropertyMgr:FindModifier("Qian");
+				local buff2 = me.npcObj.PropertyMgr:FindModifier("Luding2");
+				buff:UpdateStack(49);
+				buff2:UpdateStack(-10);
+				me:AddMsg("[NAME]交给了对方十名普通女子，对方大喜之余向[NAME]丢来了一个钱袋，[NAME]掂了一下，钱袋里大概有50两左右……");
+				else
+				me:AddMsg("[NAME]手上并没有那么多普通女子的俘虏……");
+				end
+				</OKResult>
+			</li>
+			
+			<li>
+				<Display>对我的处子之身很有兴趣</Display>
+				<DisplayCondition>
+				GameMain:GetMod("Lua_hudong"):PutongchunvPD()
+				</DisplayCondition>
+				<OKResult>
+				me:AddMsg("对方面带淫笑的说到：“姑娘身上那香香的处子气息让小生意乱神迷，可愿与小生共赴那巫山，双修一番与否？”\n保留着处子之身的女修可是修真界的稀有资源，[NAME]自然不会让对方白嫖自己一番，商讨之后对方愿出纹银五千两，外加份地母灵液来换取[NAME]的处子之身。\n谈妥之后合欢男修便褪去裤子露出下身那如同巨蟒一般的大棒，看的[NAME]脸红心道：“居然那么……”，未等[NAME]在多想其他，这条巨蟒般的肉棒便突入了[NAME]的小穴一路势如破竹直取花心。\n破瓜之痛使得[NAME]不禁喊出声来，可随后便沉醉于对方超绝的性技中，直到被干到双眼翻白神志不清后被对方采补了一番……最后甚至连嫖资都没收到。");
+				me:AddModifier("Story_Caibuzhidao2");me:AddModifier("Pochu");
+				</OKResult>
+			</li>
+			
+			<li>
+				<Display>对我的身体很有兴趣</Display>
+				<DisplayCondition>
+				GameMain:GetMod("Lua_hudong"):PutongfeichunvPD()
+				</DisplayCondition>
+				<OKResult>
+				me:AddMsg("合欢男修面带淫笑的说到：“姑娘这绝色之姿容让小生意乱神迷，可愿与小生共赴那巫山，双修一番与否？”\n[NAME]并非一个处子，所以并不介意和别人随缘来上那么一炮，可是怎么说[NAME]也算的上是美人，给人白玩着实没道理\n于是在一番商讨之后对方愿出纹银千两与自己共度一宵，[NAME]觉得这个价格挺合理的便和对方寻了个地方干了起来……");
+				if me:GetGongName() == "Gong_1701_Tu" then
+					if me:GetModifierStack("Story_Caibuzhidao1") > 80 then
+					me:AddMsg("与合欢男修酣战之余，[NAME]默颂合欢残篇心法口诀暗运功法，对方不查居然着了[NAME]的道，被[NAME]脐下三寸的小口活活吸成了人干……\n事毕，[NAME]从对方身上翻出了纹银万两。");
+					me:AddModifier("Story_Caibuzhidao1");
+					me:AddModifier("Qian");
+					local buff = me.npcObj.PropertyMgr:FindModifier("Qian");
+					buff:UpdateStack(9999);
+					else
+					me:AddMsg("与合欢男修酣战之余，[NAME]默颂合欢残篇心法口诀暗运功法，奈何道行太浅（采补总次数低于80），被对方察觉反被干到死去活来神失色迷……");
+					me:ModifierProperty("MaxAge",-100);
+					me:AddModifier("Story_Caibuzhidao2");
+					end
+				else
+				me:AddMsg("与合欢男修酣战了数个时辰后于一阵水乳交融之后，结束了这次双修，双方对此都挺满意，觉得这是一次不错的双修。\n对方爽气的支付了一千两嫖资。");
+				me:AddPracticeResource("Stage",me:GetGLevel() * 800);
+				me:AddModifier("Qian");
+				local buff = me.npcObj.PropertyMgr:FindModifier("Qian");
+				buff:UpdateStack(999);
+				end
+				</OKResult>
+			</li>
+			
+			<li>
+				<Display>对方看中了我的一个美丽女俘</Display>
+				<DisplayCondition>
+				GameMain:GetMod("Lua_hudong"):Ymeinv1renPD()
+				</DisplayCondition>
+				<OKResult>
+				me:AddMsg("合欢男修面带淫笑的指着[NAME]的一个女俘虏说到：“道友好艳福啊，道友身边的这个女奴我实在喜欢的紧，可否割爱？”\n[NAME]对这个女奴也欢喜不已，自是不愿，割爱于合欢男修，见[NAME]坚持不愿割爱，合欢男修又道：“那这样，我出百两纹银，这女子与我玩上一番可否？”\n[NAME]心想这好像还不错，反正也那么大个活人也不可能玩两下就坏了不是，便答应了对方的要求。");
+				if me:GetSex() == 2 then
+					if me:CheckItemEquptCount("Item_Shuangtoulong") == 1 then
+					me:AddMsg("合欢男修一把揽住[NAME]的女俘虏，一脸淫笑，手向身下探去。湿润之中却摸到了一粗长硬物，男修不惊反喜，抓住双头龙的一端便捣弄起来。\n“啊……嗯嗯额……”女子愈渐兴奋，忽然之间，反守为攻，趁着那男修玩得入神，将他牢牢压在身下，将沾满淫水的双头龙直向后庭刺去——“啊！”男修痛的叫出声来，不料女子技艺高妙，几番云雨之下令他之上云霄，体会了至今从未体会过的快乐。\n“啊……”他在极乐之中竟泄出了元阳，事后回味，却仍意犹未尽。\n事毕，合欢男修竟然成了[NAME]俘虏的裙下公狗……。[NAME]惊喜的从对方身上获得了万两纹银。");
+					me:AddModifier("Luding5");
+					me:AddModifier("Qian");
+					local buff = me.npcObj.PropertyMgr:FindModifier("Qian");
+					buff:UpdateStack(9999);
+					else
+					me:AddMsg("男修给了银子，一把抓过[NAME]的女俘虏，将她按在地上，单喝道，“舔。”那女子跪着仰视男修那雄壮的阳物，嗅着上面雄性特有的腥臊气息，心中荡漾，淫水早已流了一地，心下暗道，“这男人不仅财力雄厚，下面的本钱也这般了得。”不由得就已心神意属于他了，顺从而小心的侍奉着男修的阳物，马眼中流出的液体也喜悦的吞下。一边舔舐着，自己的右手在身下也开始抚弄着泥泞的花穴，男修看着女人这般骚浪，再也忍受不住，提起长枪直刺而入，开始纵横驰骋，二人一番欢愉。可那合欢男修却仍觉不尽兴，待女子用那樱桃小口侍弄完他沾满淫液的阳具后，他用那粗长之物抽打女子脸颊，命令道，“报数。”“1、2、3……”每抽打一下女子便乖乖的报出下一个数字。男修玩得爽快，大笑之下将女子翻过身去，女子跪趴着，他一手扶着她的细腰，另一手伴随着抽插的节奏拍打着她的翘臀。“啊！……哦……不要停……”打得愈渐用力，女子叫的却也愈显贱浪。“贱狗，你说你怎么这么骚啊？”男修停下动作问道。女子急得自己向后耸动了起来，“不，不要停，我是主人的贱母狗，求主人操死我。”一番云雨，待男修射出阳精后，竟发现那女人晕死了过去。事毕，[NAME]的俘虏成为了合欢男修的女奴隶。");
+					me:AddModifier("Qian");
+					local buff = me.npcObj.PropertyMgr:FindModifier("Qian");
+					local buff2 = me.npcObj.PropertyMgr:FindModifier("Luding4");
+					buff:UpdateStack(99);
+					buff:UpdateStack(-1);
+					end
+				else
+					if me.npcObj.PropertyMgr.BodyData:PartIsBroken("Genitals") then
+					me:AddMsg("男修定睛凝视[NAME]的俘虏，目光一刻也难移开，只觉天上仙子也不如她半分美貌，挽过她窈窕的身姿，伸手轻抚她的长发，不经意间嗅到了那沁人心脾的芬芳而愈渐沉醉。\n二人相拥而吻，男修按奈不住，用手抚过她的后腰，直至臀部，一捏一放，他的阳物此刻已万分坚挺，“宝贝，我们把衣服脱了吧。\n”合欢男修欣赏着那衣物一件一件的从她身上褪下，眼神中充满了欲火，怎奈她褪下亵裤后却让他慌了神——“这，这是没怎么回事？”他指着她的下体，那里不似女子的蜜缝，只有一道疤痕。\n她怯生生的道，“奴奴自幼便被阉割为奴，因生的好看，学了这以色侍人的本事。那些女子会的，奴奴也会，还望真人不要嫌弃人家。”语毕，便跪下用香舌侍弄起男修的阳物，舔、拢、吸、拨，花样层出，男修只站在那里，舒服极了，看着她精致的容颜，竟也心生了一丝怜惜，心想，“任他男女，如此尤物，便是九天玄女也是不及的。\n”二人几度巫山，以致极乐。事毕，合欢男修赠与了[NAME]万两纹银，将这个美“女”俘虏从[NAME]手中赎买出来。");
+					me:AddModifier("Qian");
+					local buff = me.npcObj.PropertyMgr:FindModifier("Qian");
+					local buff2 = me.npcObj.PropertyMgr:FindModifier("Luding4");
+					buff:UpdateStack(9999);
+					buff:UpdateStack(-1);
+					else
+					me:AddMsg("[NAME]对方将[NAME]的女奴玩弄一番后，支付了嫖资一百两。");
+					me:AddModifier("Qian");
+					local buff = me.npcObj.PropertyMgr:FindModifier("Qian");
+					buff:UpdateStack(99);
+					end
+				end
+				</OKResult>
+			</li>
+			
+			<li>
+				<Display>离开</Display>
+				<OKResult>
+				me:AddMsg("[NAME]转身离开了……");
+				me:TriggerStory("NPC_HHJindannanT");
+				</OKResult>
+			</li>
+		</Selections>
+	</Story>
+</List></Stories>
