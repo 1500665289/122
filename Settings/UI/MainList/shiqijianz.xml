@@ -1,5 +1,5 @@
-﻿<MainList><List>
-        	<Data Kind="Builds" Type="合欢" Unlock="0"  CMDType="Build" Name="SEXzhuo"/>
-               <Data Kind="Builds" Type="合欢" Unlock="0"  CMDType="Build" Name="Nvoubaoxiang"/>
-               <Data Kind="Builds" Type="合欢" Unlock="0"  CMDType="Build" Name="fengyuebaojian"/>
+<MainList><List>
+        	<Data Kind="Builds" Type="合欢" Unlock="1"  CMDType="Build" Name="SEXzhuo"/>
+               <Data Kind="Builds" Type="合欢" Unlock="1"  CMDType="Build" Name="Nvoubaoxiang"/>
+               <Data Kind="Builds" Type="合欢" Unlock="1"  CMDType="Build" Name="fengyuebaojian"/>
 </List></MainList>
